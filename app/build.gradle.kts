@@ -19,7 +19,6 @@ tasks.test {
     useJUnitPlatform()
 }
 
-
 application {
     mainClass.set("hexlet.code.App")
 }
@@ -28,3 +27,10 @@ tasks.compileJava {
     options.release = 20
 }
 
+//run {
+//    standardInput = System.'in'
+//}
+
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
+}
