@@ -7,6 +7,6 @@ public class GeneratorRandomNumber {
 
     public int createNumber() {
         Random random = new Random();
-        return random.nextInt(999);
+        return random.nextInt(99);
     }
 }

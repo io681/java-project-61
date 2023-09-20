@@ -1,10 +1,13 @@
 package hexlet.code;
 
+import hexlet.code.games.GameCalc;
+import hexlet.code.games.GameEven;
+
 import java.util.Scanner;
 
 public class App {
-    public static final int COUNT_GAMES = 1;
-    public static final String NAME_GAME = "Even";
+    public static final String[] games = {"Even","Calc"};
+    static int numberGame = 2;
 
     public static String userName;
     public static void main(String[] args) {
@@ -12,12 +15,15 @@ public class App {
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
-        System.out.println((COUNT_GAMES + 1)  + " - " + NAME_GAME);
+        for (var game: games) {
+            System.out.println(numberGame + " - " + game);
+            numberGame += 1;
+        }
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        int numberGame = Integer.parseInt(scanner.next());
+        int numberGameChoice = Integer.parseInt(scanner.next());
 
-        switch (numberGame){
+        switch (numberGameChoice){
             case 1:
                 greetUser();
                 break;
@@ -25,19 +31,21 @@ public class App {
             case 2:
                 greetUser();
                 System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+
                 GameEven gameEven = new GameEven (userName);
                 gameEven.startGame();
+                break;
+            case 3:
+                greetUser();
+                System.out.println("What is the result of the expression?");
+
+                GameCalc gameCalc = new GameCalc (userName);
+                gameCalc.startGame();
+                break;
             case 0:
                 break;
         }
 
-//        if (numberGame == 1) {
-//            greetUser();
-//        }
-//        if (numberGame == 2) {
-//            greetUser();
-//            System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-//        }
         scanner.close();
     }
 

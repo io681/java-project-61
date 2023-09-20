@@ -1,37 +1,32 @@
-package hexlet.code;
+package hexlet.code.games;
 
-import java.util.Scanner;
+import hexlet.code.Engine;
 import hexlet.code.utils.GeneratorRandomNumber;
 
-public  class GameEven {
+public  class GameEven extends Engine {
     private  int randomNumber;
 
-    private  String answer;
-    private final Scanner scanner;
-
-    private final String userName;
-
-    GameEven(String userName) {
-        this.scanner = new Scanner(System.in);
-        this.userName = userName;
+    public GameEven(String userName) {
+        super(userName);
     }
 
-    public  void startGame() {
-        var count = 0;
 
-        while (count < 3){
+    public  void startGame() {
+        var roundCorrect = 0;
+
+        while (roundCorrect < MAX_COUNT_ROUND){
             createQuestion();
             readAnswer();
 
             if (checkAnswer(getAnswer(), getRandomNumber())) {
                 System.out.println("Correct!");
-                count += 1;
+                roundCorrect += 1;
             } else if (getAnswer().equals("yes")) {
-                System.out.println(" 'yes' is wrong answer ;(. Correct answer was '" + "no" + "'");
+                System.out.println("'yes' is wrong answer ;(. Correct answer was '" + "no" + "'");
                 System.out.println("Let's try again, " + getUserName() + "!");
                 break;
             } else if (getAnswer().equals("no")) {
-                System.out.println(" 'no' is wrong answer ;(. Correct answer was '" + "yes" + "'");
+                System.out.println("'no' is wrong answer ;(. Correct answer was '" + "yes" + "'");
                 System.out.println("Let's try again, " + getUserName() + "!");
             } else {
                 System.out.println(getAnswer() + " is wrong answer ;(.");
@@ -39,7 +34,7 @@ public  class GameEven {
                 break;
             }
         }
-        if (count == 3) {
+        if (roundCorrect == MAX_COUNT_ROUND) {
             System.out.println("Congratulations, " + getUserName() + "!");
         }
     }
@@ -47,10 +42,8 @@ public  class GameEven {
     public  void createQuestion() {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
         setRandomNumber(generatorRandomNumber.createNumber());
+
         System.out.println("Question: " + getRandomNumber());
-    }
-    public  void readAnswer() {
-        setAnswer(scanner.next());
     }
     public  boolean checkAnswer(String answer, int number) {
         if (!answer.equals("yes") && !answer.equals("no")) {
@@ -65,15 +58,4 @@ public  class GameEven {
         this.randomNumber = number;
     }
 
-    public  String getAnswer() {
-        return answer;
-    }
-
-    public  void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
 }
