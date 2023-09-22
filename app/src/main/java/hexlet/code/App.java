@@ -1,12 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.GameCalc;
-import hexlet.code.games.GameEven;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
 public class App {
-    public static final String[] games = {"Even","Calc"};
+    public static final String[] games = {"Even","Calc","GCD"};
     static int numberGame = 2;
 
     public static String userName;
@@ -41,6 +40,13 @@ public class App {
 
                 GameCalc gameCalc = new GameCalc (userName);
                 gameCalc.startGame();
+                break;
+            case  4:
+                greetUser();
+                System.out.println("Find the greatest common divisor of given numbers.");
+
+                GameGCD gameGCD = new GameGCD (userName);
+                gameGCD.startGame();
                 break;
             case 0:
                 break;
