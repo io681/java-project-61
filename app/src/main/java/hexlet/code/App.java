@@ -51,6 +51,9 @@ public class App {
             case  5:
                 greetUser();
                 System.out.println("What number is missing in the progression?");
+
+                GameProgression gameProgression = new GameProgression (userName);
+                gameProgression.startGame();
                 break;
 
             case 0:
