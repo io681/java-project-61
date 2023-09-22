@@ -5,6 +5,7 @@ import hexlet.code.utils.GeneratorRandomNumber;
 
 public  class GameEven extends Engine {
     private  int randomNumber;
+    private final int MAX_NUMBER_RANDOM = 101;
 
     public GameEven(String userName) {
         super(userName);
@@ -41,7 +42,7 @@ public  class GameEven extends Engine {
 
     public  void createQuestion() {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
-        setRandomNumber(generatorRandomNumber.createNumber());
+        setRandomNumber(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
 
         System.out.println("Question: " + getRandomNumber());
     }

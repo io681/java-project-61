@@ -8,7 +8,7 @@ public class GameCalc extends Engine {
 
 
 
-
+    private final int MAX_NUMBER_RANDOM = 101;
     private  int randomNumberOne;
     private  int randomNumberTwo;
     private  String randomOperation;
@@ -44,8 +44,8 @@ public class GameCalc extends Engine {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
         GeneratorRandomOperation generatorRandomOperation = new GeneratorRandomOperation();
 
-        setRandomNumberOne(generatorRandomNumber.createNumber());
-        setRandomNumberTwo(generatorRandomNumber.createNumber());
+        setRandomNumberOne(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
+        setRandomNumberTwo(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
         setRandomOperation(generatorRandomOperation.createRandomOperation());
 
         System.out.println("Question: " + getRandomNumberOne() + " " + getRandomOperation()

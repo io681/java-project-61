@@ -8,6 +8,7 @@ public class GameGCD extends Engine  {
 
     private  int randomNumberOne;
     private  int randomNumberTwo;
+    private final int MAX_NUMBER_RANDOM = 101;
 
     public GameGCD(String userName) {
         super(userName);
@@ -38,8 +39,8 @@ public class GameGCD extends Engine  {
     public  void createQuestion() {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
 
-        setRandomNumberOne(generatorRandomNumber.createNumber());
-        setRandomNumberTwo(generatorRandomNumber.createNumber());
+        setRandomNumberOne(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
+        setRandomNumberTwo(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
 
         System.out.println("Question: " + getRandomNumberOne() + " " + getRandomNumberTwo());
     }

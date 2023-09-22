@@ -5,7 +5,7 @@ import hexlet.code.games.*;
 import java.util.Scanner;
 
 public class App {
-    public static final String[] games = {"Even","Calc","GCD"};
+    public static final String[] games = {"Even","Calc","GCD","Progression"};
     static int numberGame = 2;
 
     public static String userName;
@@ -48,6 +48,11 @@ public class App {
                 GameGCD gameGCD = new GameGCD (userName);
                 gameGCD.startGame();
                 break;
+            case  5:
+                greetUser();
+                System.out.println("What number is missing in the progression?");
+                break;
+
             case 0:
                 break;
         }
