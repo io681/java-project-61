@@ -5,7 +5,7 @@ import hexlet.code.games.*;
 import java.util.Scanner;
 
 public class App {
-    public static final String[] games = {"Even","Calc","GCD","Progression"};
+    public static final String[] games = {"Even","Calc","GCD","Progression","Prime"};
     static int numberGame = 2;
 
     public static String userName;
@@ -55,7 +55,13 @@ public class App {
                 GameProgression gameProgression = new GameProgression (userName);
                 gameProgression.startGame();
                 break;
+            case  6:
+                greetUser();
+                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
+                GamePrime gamePrime = new GamePrime (userName);
+                gamePrime.startGame();
+                break;
             case 0:
                 break;
         }
