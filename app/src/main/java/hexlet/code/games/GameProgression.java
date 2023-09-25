@@ -5,8 +5,7 @@ import hexlet.code.utils.GeneratorRandomNumber;
 
 public class GameProgression extends Engine {
 
-    private final int RANGE_START = 5;
-    private final int RANGE_END = 10;
+
 
     private String valueHiddenNumber;
     public GameProgression(String userName) {
@@ -22,6 +21,9 @@ public class GameProgression extends Engine {
     }
 
     public  String createProgressionRandom() {
+        int RANGE_START = 5;
+        int RANGE_END = 10;
+
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
 
         int startNumberProgression = generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM);

@@ -11,8 +11,8 @@ public class Engine {
     private final Scanner scanner;
     private final String userName;
 
-    public static final  int MAX_COUNT_ROUND = 3;
-    public static final  int MAX_NUMBER_RANDOM = 101;
+    protected static final  int MAX_COUNT_ROUND = 3;
+    protected static final  int MAX_NUMBER_RANDOM = 101;
 
     protected Engine(String userName) {
         this.scanner = new Scanner(System.in);
