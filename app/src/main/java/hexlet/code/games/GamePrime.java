@@ -1,18 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.GeneratorRandomNumber;
 
 public class GamePrime extends Engine {
     public GamePrime(String userName) {
         super(userName);
-    }
-
-    public  void createQuestion() {
-        GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
-
-        setRandomGeneratedNumber(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
-        System.out.println("Question: " + getRandomGeneratedNumber());
     }
 
     public  boolean checkAnswer() {
@@ -20,7 +12,7 @@ public class GamePrime extends Engine {
             return false;
         }
 
-        boolean result = checkContainInArray(generateArrayOfPrime(), Integer.toString(getRandomGeneratedNumber()));
+        boolean result = checkContainInArray(generateArrayOfPrime(), Integer.toString(getGeneratedNumber(0)));
 
         return ((getAnswer().equals("yes") && result) || (getAnswer().equals("no") && !result));
     }

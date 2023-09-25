@@ -11,7 +11,7 @@ public  class GameEven extends Engine {
         if (!getAnswer().equals("yes") && !getAnswer().equals("no")) {
             return false;
         }
-        return ((getAnswer().equals("yes") && getRandomGeneratedNumber() % 2 == 0)
-                || (getAnswer().equals("no") && getRandomGeneratedNumber() % 2 == 1));
+        return ((getAnswer().equals("yes") && getGeneratedNumber(0) % 2 == 0)
+                || (getAnswer().equals("no") && getGeneratedNumber(0) % 2 == 1));
     }
 }

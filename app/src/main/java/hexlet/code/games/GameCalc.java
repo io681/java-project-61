@@ -1,12 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.GeneratorRandomNumber;
 import hexlet.code.utils.GeneratorRandomOperation;
 
 public class GameCalc extends Engine {
 
-    private  int randomGeneratedNumberSecond;
     private  String randomOperation;
 
     public GameCalc(String userName) {
@@ -14,20 +12,17 @@ public class GameCalc extends Engine {
     }
 
     public  void createQuestion() {
-        GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
         GeneratorRandomOperation generatorRandomOperation = new GeneratorRandomOperation();
 
-        setRandomGeneratedNumber(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
-        setRandomGeneratedNumberSecond(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
         setRandomOperation(generatorRandomOperation.createRandomOperation());
 
-        System.out.println("Question: " + getRandomGeneratedNumber() + " " + getRandomOperation()
-                + " " + getRandomGeneratedNumberSecond());
+        System.out.println("Question: " + getGeneratedNumber(0) + " " + getRandomOperation()
+                + " " + getGeneratedNumber(1));
     }
 
     public  boolean checkAnswer() {
-        return (getAnswer().equals(resultOperation(getRandomOperation(),getRandomGeneratedNumber()
-                ,getRandomGeneratedNumberSecond())));
+        return (getAnswer().equals(resultOperation(getRandomOperation(),getGeneratedNumber(0)
+                ,getGeneratedNumber(1))));
     }
 
     public String resultOperation(String operation, int numberOne, int numberTwo) {
@@ -46,12 +41,5 @@ public class GameCalc extends Engine {
         this.randomOperation = randomOperation;
     }
 
-    public int getRandomGeneratedNumberSecond() {
-        return randomGeneratedNumberSecond;
-    }
-
-    public void setRandomGeneratedNumberSecond(int randomGeneratedNumberSecond) {
-        this.randomGeneratedNumberSecond = randomGeneratedNumberSecond;
-    }
 
 }

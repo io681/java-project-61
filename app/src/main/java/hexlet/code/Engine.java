@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Engine {
 
     private  String answer;
-    private  int randomGeneratedNumber;
+    private final int[] generatedNumbers;
     private final Scanner scanner;
     private final String userName;
 
@@ -17,12 +17,14 @@ public class Engine {
     protected Engine(String userName) {
         this.scanner = new Scanner(System.in);
         this.userName = userName;
+        this.generatedNumbers = new int[2];
     }
 
     public  void startGame() {
         var roundCorrect = 0;
 
         while (roundCorrect < MAX_COUNT_ROUND){
+            generateNumbers();
             createQuestion();
             readAnswer();
 
@@ -49,10 +51,7 @@ public class Engine {
     }
 
     public  void createQuestion() {
-        GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
-        setRandomGeneratedNumber(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
-
-        System.out.println("Question: " + getRandomGeneratedNumber());
+        System.out.println("Question: " + getGeneratedNumber(0));
     }
 
     public boolean checkAnswer() {
@@ -75,11 +74,15 @@ public class Engine {
         return userName;
     }
 
-    public int getRandomGeneratedNumber() {
-        return randomGeneratedNumber;
+    public void generateNumbers() {
+        GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
+
+        for (var i = 0; i < generatedNumbers.length; i++) {
+            generatedNumbers[i] = generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM);
+        }
     }
 
-    public void setRandomGeneratedNumber(int number) {
-        this.randomGeneratedNumber = number;
+    public int getGeneratedNumber(int positionNumber) {
+        return generatedNumbers[positionNumber];
     }
 }

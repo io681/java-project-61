@@ -26,12 +26,12 @@ public class GameProgression extends Engine {
 
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
 
-        int startNumberProgression = generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM);
-        int stepProgression = generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM);
+        int startNumberProgression = getGeneratedNumber(0);
+        int stepProgression = getGeneratedNumber(1);
         int lengthProgression = generatorRandomNumber.createNumberInRange(RANGE_START,RANGE_END);
 
         String[] progressionNumbers = new String[lengthProgression];
-        int positionHidden = generatorRandomNumber.createNumberInRange(0,lengthProgression);
+        int positionHidden = generatorRandomNumber.createNumberInRange(0,lengthProgression - 1);
         int nextNumber = 0;
 
         for (var i = 0; i < lengthProgression; i++) {
