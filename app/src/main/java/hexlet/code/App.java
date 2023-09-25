@@ -29,35 +29,39 @@ public class App {
 
         switch (numberGameChoice) {
             case 1:
-                Engine engine = new Engine(userName);
-                engine.greetUser();
+                greetUser();
                 break;
 
             case 2:
+                greetUser();
                 System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
                 GameEven gameEven = new GameEven(userName);
                 gameEven.startGame();
                 break;
             case 3:
+                greetUser();
                 System.out.println("What is the result of the expression?");
 
                 GameCalc gameCalc = new GameCalc(userName);
                 gameCalc.startGame();
                 break;
             case  4:
+                greetUser();
                 System.out.println("Find the greatest common divisor of given numbers.");
 
                 GameGCD gameGCD = new GameGCD(userName);
                 gameGCD.startGame();
                 break;
             case  5:
+                greetUser();
                 System.out.println("What number is missing in the progression?");
 
                 GameProgression gameProgression = new GameProgression(userName);
                 gameProgression.startGame();
                 break;
             case  6:
+                greetUser();
                 System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
                 GamePrime gamePrime = new GamePrime(userName);
@@ -69,7 +73,17 @@ public class App {
                 System.out.println("The game number is wrong");
                 break;
         }
+
         scanner.close();
+    }
+
+    public static void greetUser() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\nWelcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
     }
 }
 

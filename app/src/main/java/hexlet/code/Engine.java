@@ -9,7 +9,7 @@ public class Engine {
     private  String answer;
     private final int[] generatedNumbers;
     private final Scanner scanner;
-    private String userName;
+    private final String userName;
 
     protected static final  int MAX_COUNT_ROUND = 3;
     protected static final  int MAX_NUMBER_RANDOM = 101;
@@ -22,8 +22,6 @@ public class Engine {
 
     public  void startGame() {
         var roundCorrect = 0;
-
-        greetUser();
 
         while (roundCorrect < MAX_COUNT_ROUND) {
             generateNumbers();
@@ -51,14 +49,7 @@ public class Engine {
             System.out.println("Congratulations, " + getUserName() + "!");
         }
     }
-    public void greetUser() {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\nWelcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        userName = scanner.next();
-        System.out.println("Hello, " + userName + "!");
-    }
     public  void createQuestion() {
         System.out.println("Question: " + getGeneratedNumber(0));
     }
