@@ -13,29 +13,6 @@ public class GameCalc extends Engine {
         super(userName);
     }
 
-
-    public void startGame() {
-        var roundCorrect = 0;
-
-        while (roundCorrect < MAX_COUNT_ROUND) {
-            createQuestion();
-            readAnswer();
-
-            if (checkAnswer(getAnswer(), getRandomOperation(),getRandomGeneratedNumber(),getRandomGeneratedNumberSecond())) {
-                System.out.println("Correct!");
-                roundCorrect += 1;
-            } else {
-                System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(.");
-                System.out.println("Let's try again, " + getUserName() + "!");
-                break;
-            }
-        }
-
-        if (roundCorrect == MAX_COUNT_ROUND) {
-            System.out.println("Congratulations, " + getUserName() + "!");
-        }
-    }
-
     public  void createQuestion() {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
         GeneratorRandomOperation generatorRandomOperation = new GeneratorRandomOperation();
@@ -48,8 +25,9 @@ public class GameCalc extends Engine {
                 + " " + getRandomGeneratedNumberSecond());
     }
 
-    public  boolean checkAnswer(String answer, String operation, int numberOne, int numberTwo) {
-        return (answer.equals(resultOperation(operation,numberOne,numberTwo)));
+    public  boolean checkAnswer() {
+        return (getAnswer().equals(resultOperation(getRandomOperation(),getRandomGeneratedNumber()
+                ,getRandomGeneratedNumberSecond())));
     }
 
     public String resultOperation(String operation, int numberOne, int numberTwo) {

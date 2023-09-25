@@ -13,39 +13,16 @@ public class GameProgression extends Engine {
         super(userName);
     }
 
-    public void startGame() {
-        var roundCorrect = 0;
-
-        while (roundCorrect < MAX_COUNT_ROUND) {
-            createQuestion();
-            readAnswer();
-
-            if (checkAnswer(getAnswer())) {
-                System.out.println("Correct!");
-                roundCorrect += 1;
-            } else {
-                System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(.");
-                System.out.println("Let's try again, " + getUserName() + "!");
-                break;
-            }
-        }
-
-        if (roundCorrect == MAX_COUNT_ROUND) {
-            System.out.println("Congratulations, " + getUserName() + "!");
-        }
-    }
-
     public  void createQuestion() {
         System.out.println("Question: " + createProgressionRandom());
     }
 
-    public  boolean checkAnswer(String answer) {
-        return answer.equals(getValueHiddenNumber());
+    public  boolean checkAnswer() {
+        return getAnswer().equals(getValueHiddenNumber());
     }
 
     public  String createProgressionRandom() {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
-
 
         int startNumberProgression = generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM);
         int stepProgression = generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM);
@@ -64,8 +41,6 @@ public class GameProgression extends Engine {
         progressionNumbers[positionHidden] = "..";
 
         return String.join(" ", progressionNumbers);
-
-
     }
 
     public String getValueHiddenNumber() {

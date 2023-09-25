@@ -11,28 +11,6 @@ public class GameGCD extends Engine  {
         super(userName);
     }
 
-    public void startGame() {
-        var roundCorrect = 0;
-
-        while (roundCorrect < MAX_COUNT_ROUND) {
-            createQuestion();
-            readAnswer();
-
-            if (checkAnswer(getAnswer(),getRandomGeneratedNumber(),getRandomGeneratedNumberSecond())) {
-                System.out.println("Correct!");
-                roundCorrect += 1;
-            } else {
-                System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(.");
-                System.out.println("Let's try again, " + getUserName() + "!");
-                break;
-            }
-        }
-
-        if (roundCorrect == MAX_COUNT_ROUND) {
-            System.out.println("Congratulations, " + getUserName() + "!");
-        }
-    }
-
     public  void createQuestion() {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
 
@@ -42,8 +20,8 @@ public class GameGCD extends Engine  {
         System.out.println("Question: " + getRandomGeneratedNumber() + " " + getRandomGeneratedNumberSecond());
     }
 
-    public  boolean checkAnswer(String answer, int numberOne, int numberTwo) {
-        return (answer.equals(resultOperationGDK(numberOne,numberTwo)));
+    public  boolean checkAnswer() {
+        return (getAnswer().equals(resultOperationGDK(getRandomGeneratedNumber(),getRandomGeneratedNumberSecond())));
     }
 
     public String resultOperationGDK(int numberOne, int numberTwo) {
