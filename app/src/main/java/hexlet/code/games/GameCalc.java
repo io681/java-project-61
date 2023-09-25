@@ -21,8 +21,8 @@ public class GameCalc extends Engine {
     }
 
     public  boolean checkAnswer() {
-        return (getAnswer().equals(resultOperation(getRandomOperation(),getGeneratedNumber(0)
-                ,getGeneratedNumber(1))));
+        return (getAnswer().equals(resultOperation(getRandomOperation(), getGeneratedNumber(0),
+                getGeneratedNumber(1))));
     }
 
     public String resultOperation(String operation, int numberOne, int numberTwo) {

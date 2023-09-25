@@ -15,7 +15,8 @@ public class GeneratorRandomOperation {
                 return "-";
             case 2:
                 return "*";
+            default:
+                return null;
         }
-        return null;
     }
 }

@@ -21,17 +21,17 @@ public class GameProgression extends Engine {
     }
 
     public  String createProgressionRandom() {
-        int RANGE_START = 5;
-        int RANGE_END = 10;
+        int rangeStart = 5;
+        int rangeEnd = 10;
 
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
 
         int startNumberProgression = getGeneratedNumber(0);
         int stepProgression = getGeneratedNumber(1);
-        int lengthProgression = generatorRandomNumber.createNumberInRange(RANGE_START,RANGE_END);
+        int lengthProgression = generatorRandomNumber.createNumberInRange(rangeStart, rangeEnd);
 
         String[] progressionNumbers = new String[lengthProgression];
-        int positionHidden = generatorRandomNumber.createNumberInRange(0,lengthProgression - 1);
+        int positionHidden = generatorRandomNumber.createNumberInRange(0, lengthProgression - 1);
         int nextNumber = 0;
 
         for (var i = 0; i < lengthProgression; i++) {

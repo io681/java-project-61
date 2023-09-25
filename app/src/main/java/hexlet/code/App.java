@@ -1,11 +1,16 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.GameEven;
+import hexlet.code.games.GameCalc;
+import hexlet.code.games.GameGCD;
+import hexlet.code.games.GamePrime;
+import hexlet.code.games.GameProgression;
+
 
 import java.util.Scanner;
 
 public class App {
-    public static final String[] games = {"Even","Calc","GCD","Progression","Prime"};
+    public static final String[] GAMES = {"Even", "Calc", "GCD", "Progression", "Prime"};
     static int numberGame = 2;
 
     public static String userName;
@@ -14,7 +19,7 @@ public class App {
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
-        for (var game: games) {
+        for (var game: GAMES) {
             System.out.println(numberGame + " - " + game);
             numberGame += 1;
         }
@@ -22,7 +27,7 @@ public class App {
         System.out.print("Your choice: ");
         int numberGameChoice = Integer.parseInt(scanner.next());
 
-        switch (numberGameChoice){
+        switch (numberGameChoice) {
             case 1:
                 greetUser();
                 break;
@@ -31,46 +36,48 @@ public class App {
                 greetUser();
                 System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-                GameEven gameEven = new GameEven (userName);
+                GameEven gameEven = new GameEven(userName);
                 gameEven.startGame();
                 break;
             case 3:
                 greetUser();
                 System.out.println("What is the result of the expression?");
 
-                GameCalc gameCalc = new GameCalc (userName);
+                GameCalc gameCalc = new GameCalc(userName);
                 gameCalc.startGame();
                 break;
             case  4:
                 greetUser();
                 System.out.println("Find the greatest common divisor of given numbers.");
 
-                GameGCD gameGCD = new GameGCD (userName);
+                GameGCD gameGCD = new GameGCD(userName);
                 gameGCD.startGame();
                 break;
             case  5:
                 greetUser();
                 System.out.println("What number is missing in the progression?");
 
-                GameProgression gameProgression = new GameProgression (userName);
+                GameProgression gameProgression = new GameProgression(userName);
                 gameProgression.startGame();
                 break;
             case  6:
                 greetUser();
                 System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-                GamePrime gamePrime = new GamePrime (userName);
+                GamePrime gamePrime = new GamePrime(userName);
                 gamePrime.startGame();
                 break;
             case 0:
+                break;
+            default:
+                System.out.println("The game number is wrong");
                 break;
         }
 
         scanner.close();
     }
 
-    public static void greetUser()
-    {
+    public static void greetUser() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("\nWelcome to the Brain Games!");

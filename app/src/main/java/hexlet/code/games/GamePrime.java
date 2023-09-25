@@ -20,24 +20,24 @@ public class GamePrime extends Engine {
         String numbersPrime = "";
         int countOperation = 0;
 
-            for (int i = 1; i <MAX_NUMBER_RANDOM; i++) {
-                for (int j = 2; j <= i; j++) {
-                    if (i % j == 0) {
-                        countOperation += 1;
-                    }
+        for (int i = 1; i < MAX_NUMBER_RANDOM; i++) {
+            for (int j = 2; j <= i; j++) {
+                if (i % j == 0) {
+                    countOperation += 1;
                 }
-                if (countOperation == 1) {
-                    numbersPrime += i + " ";
-                }
-                countOperation = 0;
             }
+            if (countOperation == 1) {
+                numbersPrime += i + " ";
+            }
+            countOperation = 0;
+        }
 
         return numbersPrime.split(" ");
     }
 
     public boolean checkContainInArray(String[] arrayCheck, String elementCheck) {
         for (String element: arrayCheck) {
-            if ( element.equals(elementCheck)) {
+            if (element.equals(elementCheck)) {
                 return true;
             }
         }

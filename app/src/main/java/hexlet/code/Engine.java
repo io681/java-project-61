@@ -23,7 +23,7 @@ public class Engine {
     public  void startGame() {
         var roundCorrect = 0;
 
-        while (roundCorrect < MAX_COUNT_ROUND){
+        while (roundCorrect < MAX_COUNT_ROUND) {
             generateNumbers();
             createQuestion();
             readAnswer();
