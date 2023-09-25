@@ -5,9 +5,6 @@ import hexlet.code.utils.GeneratorRandomNumber;
 
 public class GameProgression extends Engine {
 
-
-    private String progressionRandom;
-    private final int MAX_NUMBER_RANDOM = 101;
     private final int RANGE_START = 5;
     private final int RANGE_END = 10;
 

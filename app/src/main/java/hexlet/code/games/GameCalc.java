@@ -6,11 +6,7 @@ import hexlet.code.utils.GeneratorRandomOperation;
 
 public class GameCalc extends Engine {
 
-
-
-    private final int MAX_NUMBER_RANDOM = 101;
-    private  int randomNumberOne;
-    private  int randomNumberTwo;
+    private  int randomGeneratedNumberSecond;
     private  String randomOperation;
 
     public GameCalc(String userName) {
@@ -25,7 +21,7 @@ public class GameCalc extends Engine {
             createQuestion();
             readAnswer();
 
-            if (checkAnswer(getAnswer(), getRandomOperation(),getRandomNumberOne(),getRandomNumberTwo())) {
+            if (checkAnswer(getAnswer(), getRandomOperation(),getRandomGeneratedNumber(),getRandomGeneratedNumberSecond())) {
                 System.out.println("Correct!");
                 roundCorrect += 1;
             } else {
@@ -44,12 +40,12 @@ public class GameCalc extends Engine {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
         GeneratorRandomOperation generatorRandomOperation = new GeneratorRandomOperation();
 
-        setRandomNumberOne(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
-        setRandomNumberTwo(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
+        setRandomGeneratedNumber(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
+        setRandomGeneratedNumberSecond(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
         setRandomOperation(generatorRandomOperation.createRandomOperation());
 
-        System.out.println("Question: " + getRandomNumberOne() + " " + getRandomOperation()
-                + " " + getRandomNumberTwo());
+        System.out.println("Question: " + getRandomGeneratedNumber() + " " + getRandomOperation()
+                + " " + getRandomGeneratedNumberSecond());
     }
 
     public  boolean checkAnswer(String answer, String operation, int numberOne, int numberTwo) {
@@ -72,20 +68,12 @@ public class GameCalc extends Engine {
         this.randomOperation = randomOperation;
     }
 
-    public int getRandomNumberOne() {
-        return randomNumberOne;
+    public int getRandomGeneratedNumberSecond() {
+        return randomGeneratedNumberSecond;
     }
 
-    public void setRandomNumberOne(int randomNumberOne) {
-        this.randomNumberOne = randomNumberOne;
-    }
-
-    public int getRandomNumberTwo() {
-        return randomNumberTwo;
-    }
-
-    public void setRandomNumberTwo(int randomNumberTwo) {
-        this.randomNumberTwo = randomNumberTwo;
+    public void setRandomGeneratedNumberSecond(int randomGeneratedNumberSecond) {
+        this.randomGeneratedNumberSecond = randomGeneratedNumberSecond;
     }
 
 }

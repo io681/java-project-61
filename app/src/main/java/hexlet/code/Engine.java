@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class Engine {
 
     private  String answer;
+    private  int randomGeneratedNumber;
     private final Scanner scanner;
     private final String userName;
 
     public static final  int MAX_COUNT_ROUND = 3;
+    public static final  int MAX_NUMBER_RANDOM = 101;
 
     protected Engine(String userName) {
         this.scanner = new Scanner(System.in);
@@ -29,5 +31,13 @@ public class Engine {
 
     public String getUserName() {
         return userName;
+    }
+
+    public int getRandomGeneratedNumber() {
+        return randomGeneratedNumber;
+    }
+
+    public void setRandomGeneratedNumber(int number) {
+        this.randomGeneratedNumber = number;
     }
 }

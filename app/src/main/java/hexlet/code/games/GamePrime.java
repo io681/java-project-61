@@ -3,16 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.utils.GeneratorRandomNumber;
 
-import java.util.Arrays;
-
 public class GamePrime extends Engine {
-
-
-    private  int randomNumber;
-
-    private final int MAX_NUMBER_RANDOM = 101;
-
-
     public GamePrime(String userName) {
         super(userName);
     }
@@ -50,9 +41,9 @@ public class GamePrime extends Engine {
     public  void createQuestion() {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
 
-        setRandomNumber(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
+        setRandomGeneratedNumber(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
 //        System.out.println(Arrays.toString(generateArrayOfPrime()));
-        System.out.println("Question: " + getRandomNumber());
+        System.out.println("Question: " + getRandomGeneratedNumber());
     }
 
     public  boolean checkAnswer(String answer) {
@@ -60,7 +51,7 @@ public class GamePrime extends Engine {
             return false;
         }
 
-        boolean result = checkContainInArray(generateArrayOfPrime(), Integer.toString(getRandomNumber()));
+        boolean result = checkContainInArray(generateArrayOfPrime(), Integer.toString(getRandomGeneratedNumber()));
 
         return ((answer.equals("yes") && result) || (answer.equals("no") && !result));
     }
@@ -90,13 +81,5 @@ public class GamePrime extends Engine {
             }
         }
         return false;
-    }
-
-    public int getRandomNumber() {
-        return randomNumber;
-    }
-
-    public void setRandomNumber(int randomNumber) {
-        this.randomNumber = randomNumber;
     }
 }

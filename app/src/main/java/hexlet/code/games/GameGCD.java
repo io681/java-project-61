@@ -5,10 +5,7 @@ import hexlet.code.utils.GeneratorRandomNumber;
 
 public class GameGCD extends Engine  {
 
-
-    private  int randomNumberOne;
-    private  int randomNumberTwo;
-    private final int MAX_NUMBER_RANDOM = 101;
+    private  int randomGeneratedNumberSecond;
 
     public GameGCD(String userName) {
         super(userName);
@@ -21,7 +18,7 @@ public class GameGCD extends Engine  {
             createQuestion();
             readAnswer();
 
-            if (checkAnswer(getAnswer(),getRandomNumberOne(),getRandomNumberTwo())) {
+            if (checkAnswer(getAnswer(),getRandomGeneratedNumber(),getRandomGeneratedNumberSecond())) {
                 System.out.println("Correct!");
                 roundCorrect += 1;
             } else {
@@ -39,10 +36,10 @@ public class GameGCD extends Engine  {
     public  void createQuestion() {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
 
-        setRandomNumberOne(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
-        setRandomNumberTwo(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
+        setRandomGeneratedNumber(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
+        setRandomGeneratedNumberSecond(generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM));
 
-        System.out.println("Question: " + getRandomNumberOne() + " " + getRandomNumberTwo());
+        System.out.println("Question: " + getRandomGeneratedNumber() + " " + getRandomGeneratedNumberSecond());
     }
 
     public  boolean checkAnswer(String answer, int numberOne, int numberTwo) {
@@ -62,20 +59,12 @@ public class GameGCD extends Engine  {
 
     }
 
-    public int getRandomNumberOne() {
-        return randomNumberOne;
+    public int getRandomGeneratedNumberSecond() {
+        return randomGeneratedNumberSecond;
     }
 
-    public void setRandomNumberOne(int randomNumberOne) {
-        this.randomNumberOne = randomNumberOne;
-    }
-
-    public int getRandomNumberTwo() {
-        return randomNumberTwo;
-    }
-
-    public void setRandomNumberTwo(int randomNumberTwo) {
-        this.randomNumberTwo = randomNumberTwo;
+    public void setRandomGeneratedNumberSecond(int randomGeneratedNumberSecond) {
+        this.randomGeneratedNumberSecond = randomGeneratedNumberSecond;
     }
 }
 
