@@ -3,7 +3,6 @@ package hexlet.code.utils;
 import java.util.Random;
 
 public class GeneratorRandomNumber {
-    private int number;
 
     public int createNumber(int maxNumber) {
         Random random = new Random();

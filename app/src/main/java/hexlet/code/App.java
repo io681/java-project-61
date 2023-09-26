@@ -11,9 +11,9 @@ import java.util.Scanner;
 
 public class App {
     public static final String[] GAMES = {"Even", "Calc", "GCD", "Progression", "Prime"};
-    static int numberGame = 2;
+    private static int numberGame = 2;
 
-    public static String userName;
+    private static String userName;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

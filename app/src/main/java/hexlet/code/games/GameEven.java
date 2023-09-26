@@ -7,6 +7,10 @@ public  class GameEven extends Engine {
         super(userName);
     }
 
+    public  void createQuestion() {
+        System.out.println("Question: " + getGeneratedNumber(0));
+    }
+
     public  boolean checkAnswer() {
         if (!getAnswer().equals("yes") && !getAnswer().equals("no")) {
             return false;

@@ -4,7 +4,7 @@ import hexlet.code.utils.GeneratorRandomNumber;
 
 import java.util.Scanner;
 
-public class Engine {
+public abstract class Engine {
 
     private  String answer;
     private final int[] generatedNumbers;
@@ -50,31 +50,27 @@ public class Engine {
         }
     }
 
-    public  void createQuestion() {
-        System.out.println("Question: " + getGeneratedNumber(0));
-    }
+    public  abstract void createQuestion();
 
-    public boolean checkAnswer() {
-        return false;
-    }
+    public abstract boolean checkAnswer();
 
-    public  void readAnswer() {
+    public  final void readAnswer() {
         setAnswer(scanner.next());
     }
 
-    public String getAnswer() {
+    public final String getAnswer() {
         return answer;
     }
 
-    public void setAnswer(String answer) {
+    public final void setAnswer(String answer) {
         this.answer = answer;
     }
 
-    public String getUserName() {
+    public final String getUserName() {
         return userName;
     }
 
-    public void generateNumbers() {
+    public final void generateNumbers() {
         GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
 
         for (var i = 0; i < generatedNumbers.length; i++) {
@@ -82,7 +78,7 @@ public class Engine {
         }
     }
 
-    public int getGeneratedNumber(int positionNumber) {
+    public final int getGeneratedNumber(int positionNumber) {
         return generatedNumbers[positionNumber];
     }
 }
