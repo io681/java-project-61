@@ -14,7 +14,7 @@ public class GameCalc extends Engine {
     public  void createQuestion() {
         GeneratorRandomOperation generatorRandomOperation = new GeneratorRandomOperation();
 
-        setRandomOperation(generatorRandomOperation.createRandomOperation());
+        setRandomOperation(generatorRandomOperation.createRandomOperation(MAX_NUMBER_RANDOM));
 
         System.out.println("Question: " + getGeneratedNumber(0) + " " + getRandomOperation()
                 + " " + getGeneratedNumber(1));

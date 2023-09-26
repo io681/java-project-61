@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class App {
     public static final String[] GAMES = {"Even", "Calc", "GCD", "Progression", "Prime"};
-    private static int numberGame = 2;
+    private static final int startNumberGameMenu = 2;
 
     private static String userName;
     public static void main(String[] args) {
@@ -19,9 +19,12 @@ public class App {
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
+
+        int numberList = startNumberGameMenu;
+
         for (var game: GAMES) {
-            System.out.println(numberGame + " - " + game);
-            numberGame += 1;
+            System.out.println(numberList + " - " + game);
+            numberList += 1;
         }
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
@@ -32,35 +35,35 @@ public class App {
                 greetUser();
                 break;
 
-            case 2:
+            case startNumberGameMenu:
                 greetUser();
                 System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
                 GameEven gameEven = new GameEven(userName);
                 gameEven.startGame();
                 break;
-            case 3:
+            case startNumberGameMenu + 1:
                 greetUser();
                 System.out.println("What is the result of the expression?");
 
                 GameCalc gameCalc = new GameCalc(userName);
                 gameCalc.startGame();
                 break;
-            case  4:
+            case  startNumberGameMenu + 2:
                 greetUser();
                 System.out.println("Find the greatest common divisor of given numbers.");
 
                 GameGCD gameGCD = new GameGCD(userName);
                 gameGCD.startGame();
                 break;
-            case  5:
+            case  startNumberGameMenu + 3:
                 greetUser();
                 System.out.println("What number is missing in the progression?");
 
                 GameProgression gameProgression = new GameProgression(userName);
                 gameProgression.startGame();
                 break;
-            case  6:
+            case  startNumberGameMenu + 4:
                 greetUser();
                 System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
