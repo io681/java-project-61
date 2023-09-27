@@ -1,7 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.GeneratorRandomNumber;
+import hexlet.code.utils.GeneratorRandomGameBrain;
+
+import static hexlet.code.utils.GeneratorRandom.RANGE_END_LENGTH_PROGRESSION;
+import static hexlet.code.utils.GeneratorRandom.RANGE_START_LENGTH_PROGRESSION;
 
 public class GameProgression extends Engine {
 
@@ -12,7 +15,7 @@ public class GameProgression extends Engine {
         super();
     }
 
-    public void generateDescriptionTask() {
+    public final void generateDescriptionTask() {
         System.out.println("What number is missing in the progression?");
     }
 
@@ -25,17 +28,14 @@ public class GameProgression extends Engine {
     }
 
     public final String createProgressionRandom() {
-        int rangeStart = 5;
-        int rangeEnd = 10;
-
-        GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
+        GeneratorRandomGameBrain generatorRandomGameBrain = new GeneratorRandomGameBrain();
 
         int startNumberProgression = getGeneratedNumber(0);
         int stepProgression = getGeneratedNumber(1);
-        int lengthProgression = generatorRandomNumber.createNumberInRange(rangeStart, rangeEnd);
+        int lengthProgression = generatorRandomGameBrain.createNumberInRange(RANGE_START_LENGTH_PROGRESSION, RANGE_END_LENGTH_PROGRESSION);
 
         String[] progressionNumbers = new String[lengthProgression];
-        int positionHidden = generatorRandomNumber.createNumberInRange(0, lengthProgression - 1);
+        int positionHidden = generatorRandomGameBrain.createNumberInRange(0, lengthProgression - 1);
         int nextNumber = 0;
 
         for (var i = 0; i < lengthProgression; i++) {

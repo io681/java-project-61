@@ -3,6 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.utils.GeneratorRandomOperation;
 
+import static hexlet.code.utils.GeneratorRandom.MAX_NUMBER_RANDOM;
+
 public class GameCalc extends Engine {
 
     private  String randomOperation;
@@ -11,7 +13,7 @@ public class GameCalc extends Engine {
         super();
     }
 
-    public void generateDescriptionTask() {
+    public final void generateDescriptionTask() {
         System.out.println("What is the result of the expression?");
     }
 
@@ -41,8 +43,8 @@ public class GameCalc extends Engine {
         return randomOperation;
     }
 
-    public final void setRandomOperation(String randomOperation) {
-        this.randomOperation = randomOperation;
+    public final void setRandomOperation(String randomOperationForSet) {
+        this.randomOperation = randomOperationForSet;
     }
 
 

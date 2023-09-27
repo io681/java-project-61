@@ -2,6 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import static hexlet.code.utils.GeneratorRandom.MAX_NUMBER_RANDOM;
+
 public class GamePrime extends Engine {
     public GamePrime() {
         super();

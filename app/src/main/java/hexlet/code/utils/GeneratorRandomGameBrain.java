@@ -2,7 +2,7 @@ package hexlet.code.utils;
 
 import java.util.Random;
 
-public class GeneratorRandomNumber {
+public class GeneratorRandomGameBrain implements GeneratorRandom {
 
     public final int createNumber(int maxNumber) {
         Random random = new Random();

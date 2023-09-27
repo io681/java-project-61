@@ -1,8 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.utils.GeneratorRandomNumber;
+import hexlet.code.utils.GeneratorRandomGameBrain;
 
 import java.util.Scanner;
+
+import static hexlet.code.utils.GeneratorRandom.MAX_NUMBER_RANDOM;
 
 public abstract class Engine {
 
@@ -12,7 +14,6 @@ public abstract class Engine {
     private String userName;
 
     protected static final  int MAX_COUNT_ROUND = 3;
-    protected static final  int MAX_NUMBER_RANDOM = 101;
 
     protected Engine() {
         this.scanner = new Scanner(System.in);
@@ -75,10 +76,10 @@ public abstract class Engine {
     }
 
     public final void generateNumbers() {
-        GeneratorRandomNumber generatorRandomNumber = new GeneratorRandomNumber();
+        GeneratorRandomGameBrain generatorRandomGameBrain = new GeneratorRandomGameBrain();
 
         for (var i = 0; i < generatedNumbers.length; i++) {
-            generatedNumbers[i] = generatorRandomNumber.createNumber(MAX_NUMBER_RANDOM);
+            generatedNumbers[i] = generatorRandomGameBrain.createNumber(MAX_NUMBER_RANDOM);
         }
     }
 

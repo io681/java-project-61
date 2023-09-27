@@ -2,13 +2,16 @@ package hexlet.code.utils;
 
 import java.util.Random;
 
-public class GeneratorRandomOperation {
+public class GeneratorRandomOperation implements GeneratorRandom{
     private final String[] operations = {"+", "-", "*"};
-
+    public final int createNumber(int maxNumber) {
+        Random random = new Random();
+        return random.nextInt(maxNumber);
+    }
     public final String createRandomOperation(int maxNumber) {
 
-        Random random = new Random();
-        int numberChoice = random.nextInt(maxNumber) % operations.length;
+        int generatedNumber = createNumber(maxNumber);
+        int numberChoice = generatedNumber % operations.length;
 
         return switch (numberChoice) {
             case 0 -> "+";
