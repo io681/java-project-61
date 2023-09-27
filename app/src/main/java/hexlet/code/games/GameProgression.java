@@ -32,7 +32,8 @@ public class GameProgression extends Engine {
 
         int startNumberProgression = getGeneratedNumber(0);
         int stepProgression = getGeneratedNumber(1);
-        int lengthProgression = generatorRandomGameBrain.createNumberInRange(RANGE_START_LENGTH_PROGRESSION, RANGE_END_LENGTH_PROGRESSION);
+        int lengthProgression = generatorRandomGameBrain.createNumberInRange(RANGE_START_LENGTH_PROGRESSION,
+                RANGE_END_LENGTH_PROGRESSION);
 
         String[] progressionNumbers = new String[lengthProgression];
         int positionHidden = generatorRandomGameBrain.createNumberInRange(0, lengthProgression - 1);
