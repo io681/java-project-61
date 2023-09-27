@@ -8,8 +8,12 @@ public class GameProgression extends Engine {
 
 
     private String valueHiddenNumber;
-    public GameProgression(String userName) {
-        super(userName);
+    public GameProgression() {
+        super();
+    }
+
+    public void GenerateDescriptionTask() {
+        System.out.println("What number is missing in the progression?");
     }
 
     public  void createQuestion() {

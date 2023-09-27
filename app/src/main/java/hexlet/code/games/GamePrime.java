@@ -3,8 +3,12 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class GamePrime extends Engine {
-    public GamePrime(String userName) {
-        super(userName);
+    public GamePrime() {
+        super();
+    }
+
+    public void GenerateDescriptionTask() {
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
     public  void createQuestion() {

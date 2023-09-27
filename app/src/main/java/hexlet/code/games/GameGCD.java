@@ -4,8 +4,12 @@ import hexlet.code.Engine;
 
 public class GameGCD extends Engine  {
 
-    public GameGCD(String userName) {
-        super(userName);
+    public GameGCD() {
+        super();
+    }
+
+    public void GenerateDescriptionTask() {
+        System.out.println("Find the greatest common divisor of given numbers.");
     }
 
     public  void createQuestion() {

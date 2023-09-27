@@ -9,21 +9,23 @@ public abstract class Engine {
     private  String answer;
     private final int[] generatedNumbers;
     private final Scanner scanner;
-    private final String userName;
+    private String userName;
 
     protected static final  int MAX_COUNT_ROUND = 3;
     protected static final  int MAX_NUMBER_RANDOM = 101;
 
-    protected Engine(String userName) {
+    protected Engine() {
         this.scanner = new Scanner(System.in);
-        this.userName = userName;
         this.generatedNumbers = new int[2];
     }
 
     public  void startGame() {
         var roundCorrect = 0;
 
+        greetUser();
+
         while (roundCorrect < MAX_COUNT_ROUND) {
+            GenerateDescriptionTask();
             generateNumbers();
             createQuestion();
             readAnswer();
@@ -54,6 +56,8 @@ public abstract class Engine {
 
     public abstract boolean checkAnswer();
 
+    public abstract void GenerateDescriptionTask();
+
     public  final void readAnswer() {
         setAnswer(scanner.next());
     }
@@ -80,5 +84,14 @@ public abstract class Engine {
 
     public final int getGeneratedNumber(int positionNumber) {
         return generatedNumbers[positionNumber];
+    }
+
+    public final void greetUser() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\nWelcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        this.userName = scanner.next();
+        System.out.println("Hello, " + userName + "!");
     }
 }

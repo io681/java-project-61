@@ -3,10 +3,12 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public  class GameEven extends Engine {
-    public GameEven(String userName) {
-        super(userName);
+    public GameEven() {
+        super();
     }
-
+    public void GenerateDescriptionTask() {
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    }
     public  void createQuestion() {
         System.out.println("Question: " + getGeneratedNumber(0));
     }

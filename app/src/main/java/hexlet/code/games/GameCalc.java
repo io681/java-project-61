@@ -7,8 +7,12 @@ public class GameCalc extends Engine {
 
     private  String randomOperation;
 
-    public GameCalc(String userName) {
-        super(userName);
+    public GameCalc() {
+        super();
+    }
+
+    public void GenerateDescriptionTask() {
+        System.out.println("What is the result of the expression?");
     }
 
     public  void createQuestion() {
