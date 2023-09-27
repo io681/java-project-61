@@ -39,6 +39,14 @@ public class GameCalc extends Engine {
             default -> "not correct data";
         };
     }
+    public final void generateTextResultRound(boolean isCorrect) {
+        if (isCorrect) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(.");
+            System.out.println("Let's try again, " + getUserName() + "!");
+        }
+    }
     public final String getRandomOperation() {
         return randomOperation;
     }

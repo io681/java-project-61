@@ -20,8 +20,7 @@ public  class GameEven extends Engine {
         return ((getAnswer().equals("yes") && getGeneratedNumber(0) % 2 == 0)
                 || (getAnswer().equals("no") && getGeneratedNumber(0) % 2 == 1));
     }
-    @Override
-    public void generateTextResultRound(boolean isCorrect) {
+    public final void generateTextResultRound(boolean isCorrect) {
         if (isCorrect) {
             System.out.println("Correct!");
         } else {

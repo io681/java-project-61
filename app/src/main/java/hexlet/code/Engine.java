@@ -50,15 +50,7 @@ public abstract class Engine {
 
     public abstract void generateDescriptionTask();
 
-    public void generateTextResultRound(boolean isCorrect) {
-        if (isCorrect) {
-            System.out.println("Correct!");
-        } else {
-            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(.");
-            System.out.println("Let's try again, " + getUserName() + "!");
-        }
-
-    }
+    public abstract void generateTextResultRound(boolean isCorrect);
 
     public  final void readAnswer() {
         setAnswer(scanner.next());

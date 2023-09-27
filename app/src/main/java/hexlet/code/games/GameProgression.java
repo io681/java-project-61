@@ -27,6 +27,15 @@ public class GameProgression extends Engine {
         return getAnswer().equals(getValueHiddenNumber());
     }
 
+    public final void generateTextResultRound(boolean isCorrect) {
+        if (isCorrect) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(.");
+            System.out.println("Let's try again, " + getUserName() + "!");
+        }
+    }
+
     public final String createProgressionRandom() {
         GeneratorRandomGameBrain generatorRandomGameBrain = new GeneratorRandomGameBrain();
 

@@ -55,7 +55,7 @@ public class GamePrime extends Engine {
     }
 
     @Override
-    public void generateTextResultRound(boolean isCorrect) {
+    public final void generateTextResultRound(boolean isCorrect) {
         if (isCorrect) {
             System.out.println("Correct!");
         } else {

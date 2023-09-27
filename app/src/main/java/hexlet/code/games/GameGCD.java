@@ -20,6 +20,14 @@ public class GameGCD extends Engine  {
         return (getAnswer().equals(resultOperationGDK(getGeneratedNumber(0), getGeneratedNumber(1))));
     }
 
+    public final void generateTextResultRound(boolean isCorrect) {
+        if (isCorrect) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(.");
+            System.out.println("Let's try again, " + getUserName() + "!");
+        }
+    }
     public final String resultOperationGDK(int numberOne, int numberTwo) {
         var numberGDK = 1;
 
