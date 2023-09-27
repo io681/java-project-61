@@ -24,30 +24,21 @@ public abstract class Engine {
         var roundCorrect = 0;
 
         greetUser();
+        generateDescriptionTask();
 
         while (roundCorrect < MAX_COUNT_ROUND) {
-            generateDescriptionTask();
             generateNumbers();
             createQuestion();
             readAnswer();
 
+            generateTextResultRound(checkAnswer());
             if (checkAnswer()) {
-                System.out.println("Correct!");
                 roundCorrect += 1;
-            } else if (getAnswer().equals("yes")) {
-                System.out.println("'yes' is wrong answer ;(. Correct answer was '" + "no" + "'");
-                System.out.println("Let's try again, " + getUserName() + "!");
-                break;
-            } else if (getAnswer().equals("no")) {
-                System.out.println("'no' is wrong answer ;(. Correct answer was '" + "yes" + "'");
-                System.out.println("Let's try again, " + getUserName() + "!");
-                break;
             } else {
-                System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(.");
-                System.out.println("Let's try again, " + getUserName() + "!");
                 break;
             }
         }
+
         if (roundCorrect == MAX_COUNT_ROUND) {
             System.out.println("Congratulations, " + getUserName() + "!");
         }
@@ -58,6 +49,16 @@ public abstract class Engine {
     public abstract boolean checkAnswer();
 
     public abstract void generateDescriptionTask();
+
+    public void generateTextResultRound(boolean isCorrect) {
+        if (isCorrect) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(.");
+            System.out.println("Let's try again, " + getUserName() + "!");
+        }
+
+    }
 
     public  final void readAnswer() {
         setAnswer(scanner.next());
