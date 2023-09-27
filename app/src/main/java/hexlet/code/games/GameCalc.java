@@ -11,11 +11,11 @@ public class GameCalc extends Engine {
         super();
     }
 
-    public void GenerateDescriptionTask() {
+    public void generateDescriptionTask() {
         System.out.println("What is the result of the expression?");
     }
 
-    public  void createQuestion() {
+    public final void createQuestion() {
         GeneratorRandomOperation generatorRandomOperation = new GeneratorRandomOperation();
 
         setRandomOperation(generatorRandomOperation.createRandomOperation(MAX_NUMBER_RANDOM));
@@ -24,12 +24,12 @@ public class GameCalc extends Engine {
                 + " " + getGeneratedNumber(1));
     }
 
-    public  boolean checkAnswer() {
+    public final  boolean checkAnswer() {
         return (getAnswer().equals(resultOperation(getRandomOperation(), getGeneratedNumber(0),
                 getGeneratedNumber(1))));
     }
 
-    public String resultOperation(String operation, int numberOne, int numberTwo) {
+    public final String resultOperation(String operation, int numberOne, int numberTwo) {
         return switch (operation) {
             case "+" -> Integer.toString(numberOne + numberTwo);
             case "-" -> Integer.toString(numberOne - numberTwo);
@@ -37,11 +37,11 @@ public class GameCalc extends Engine {
             default -> "not correct data";
         };
     }
-    public String getRandomOperation() {
+    public final String getRandomOperation() {
         return randomOperation;
     }
 
-    public void setRandomOperation(String randomOperation) {
+    public final void setRandomOperation(String randomOperation) {
         this.randomOperation = randomOperation;
     }
 

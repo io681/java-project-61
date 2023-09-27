@@ -7,15 +7,15 @@ public class GamePrime extends Engine {
         super();
     }
 
-    public void GenerateDescriptionTask() {
+    public final void generateDescriptionTask() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
-    public  void createQuestion() {
+    public  final void createQuestion() {
         System.out.println("Question: " + getGeneratedNumber(0));
     }
 
-    public  boolean checkAnswer() {
+    public  final boolean checkAnswer() {
         if (!getAnswer().equals("yes") && !getAnswer().equals("no")) {
             return false;
         }
@@ -24,7 +24,7 @@ public class GamePrime extends Engine {
 
         return ((getAnswer().equals("yes") && result) || (getAnswer().equals("no") && !result));
     }
-    public  String[] generateArrayOfPrime() {
+    public final  String[] generateArrayOfPrime() {
         String numbersPrime = "";
         int countOperation = 0;
 
@@ -43,7 +43,7 @@ public class GamePrime extends Engine {
         return numbersPrime.split(" ");
     }
 
-    public boolean checkContainInArray(String[] arrayCheck, String elementCheck) {
+    public final boolean checkContainInArray(String[] arrayCheck, String elementCheck) {
         for (String element: arrayCheck) {
             if (element.equals(elementCheck)) {
                 return true;

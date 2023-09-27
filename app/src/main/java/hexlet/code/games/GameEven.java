@@ -6,10 +6,10 @@ public  class GameEven extends Engine {
     public GameEven() {
         super();
     }
-    public void GenerateDescriptionTask() {
+    public final void generateDescriptionTask() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
     }
-    public  void createQuestion() {
+    public final void createQuestion() {
         System.out.println("Question: " + getGeneratedNumber(0));
     }
 

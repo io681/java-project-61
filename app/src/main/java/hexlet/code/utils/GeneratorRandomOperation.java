@@ -5,7 +5,7 @@ import java.util.Random;
 public class GeneratorRandomOperation {
     private final String[] operations = {"+", "-", "*"};
 
-    public String createRandomOperation(int maxNumber) {
+    public final String createRandomOperation(int maxNumber) {
 
         Random random = new Random();
         int numberChoice = random.nextInt(maxNumber) % operations.length;

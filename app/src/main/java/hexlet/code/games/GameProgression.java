@@ -12,19 +12,19 @@ public class GameProgression extends Engine {
         super();
     }
 
-    public void GenerateDescriptionTask() {
+    public void generateDescriptionTask() {
         System.out.println("What number is missing in the progression?");
     }
 
-    public  void createQuestion() {
+    public  final void createQuestion() {
         System.out.println("Question: " + createProgressionRandom());
     }
 
-    public  boolean checkAnswer() {
+    public  final boolean checkAnswer() {
         return getAnswer().equals(getValueHiddenNumber());
     }
 
-    public  String createProgressionRandom() {
+    public final String createProgressionRandom() {
         int rangeStart = 5;
         int rangeEnd = 10;
 
@@ -49,12 +49,12 @@ public class GameProgression extends Engine {
         return String.join(" ", progressionNumbers);
     }
 
-    public String getValueHiddenNumber() {
+    public final String getValueHiddenNumber() {
         return valueHiddenNumber;
     }
 
-    public void setValueHiddenNumber(String valueHiddenNumber) {
-        this.valueHiddenNumber = valueHiddenNumber;
+    public final void setValueHiddenNumber(String valueHiddenNumberForSet) {
+        this.valueHiddenNumber = valueHiddenNumberForSet;
     }
 
 }

@@ -1,13 +1,16 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.GameCalc;
+import hexlet.code.games.GameEven;
+import hexlet.code.games.GameGCD;
+import hexlet.code.games.GamePrime;
+import hexlet.code.games.GameProgression;
 
-public class GameBrainService implements GameService{
-
+public class GameBrainService implements GameService {
     public static final String[] GAMES = {"Even", "Calc", "GCD", "Progression", "Prime"};
     private static final int START_NUMBER_GAME = 2;
 
-    public void generateMenu() {
+    public final void generateMenu() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
 
@@ -21,7 +24,7 @@ public class GameBrainService implements GameService{
         System.out.print("Your choice: ");
     }
 
-    public void startGameByChoiceNumber(int numberGame) {
+    public final void startGameByChoiceNumber(int numberGame) {
 
         switch (numberGame) {
             case 1:

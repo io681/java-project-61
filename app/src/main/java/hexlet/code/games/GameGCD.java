@@ -8,19 +8,19 @@ public class GameGCD extends Engine  {
         super();
     }
 
-    public void GenerateDescriptionTask() {
+    public final void generateDescriptionTask() {
         System.out.println("Find the greatest common divisor of given numbers.");
     }
 
-    public  void createQuestion() {
+    public  final void createQuestion() {
         System.out.println("Question: " + getGeneratedNumber(0) + " " + getGeneratedNumber(1));
     }
 
-    public  boolean checkAnswer() {
+    public final boolean checkAnswer() {
         return (getAnswer().equals(resultOperationGDK(getGeneratedNumber(0), getGeneratedNumber(1))));
     }
 
-    public String resultOperationGDK(int numberOne, int numberTwo) {
+    public final String resultOperationGDK(int numberOne, int numberTwo) {
         var numberGDK = 1;
 
         for (var i = 1; i <= numberOne; i++) {
