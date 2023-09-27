@@ -23,7 +23,7 @@ public class GameGCD extends Engine  {
     public String resultOperationGDK(int numberOne, int numberTwo) {
         var numberGDK = 1;
 
-        for (var i = 1; i < numberOne; i++) {
+        for (var i = 1; i <= numberOne; i++) {
             if (numberOne % i == 0 && numberTwo % i == 0) {
                 numberGDK = i;
             }
