@@ -7,6 +7,8 @@ package hexlet.code;
 //import hexlet.code.games.GameProgression;
 
 
+import hexlet.code.services.GameBrainService;
+
 import java.util.Scanner;
 
 public class App {

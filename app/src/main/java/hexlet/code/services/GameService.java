@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.services;
 
 public interface GameService {
     int NUMBER_EVEN = 2;
