@@ -30,8 +30,8 @@ public abstract class Engine {
             generateNumbers();
             createQuestion();
             readAnswer();
-
             generateTextResultRound(checkAnswer());
+
             if (checkAnswer()) {
                 roundCorrect += 1;
             } else {
@@ -50,7 +50,22 @@ public abstract class Engine {
 
     public abstract void generateDescriptionTask();
 
-    public abstract void generateTextResultRound(boolean isCorrect);
+    public final void generateTextResultRound(boolean isCorrect) {
+        if (isCorrect) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(." + generateHelperStringForYesNo());
+            System.out.println("Let's try again, " + getUserName() + "!");
+        }
+    };
+    public final String generateHelperStringForYesNo() {
+        if (!checkAnswer() && getAnswer().equals("yes")) {
+            return "Correct answer was '" + "no" + "'";
+        } else if (!checkAnswer() && getAnswer().equals("no")){
+            return "Correct answer was '" + "yes" + "'";
+        }
+        return "";
+    };
 
     public  final void readAnswer() {
         setAnswer(scanner.next());

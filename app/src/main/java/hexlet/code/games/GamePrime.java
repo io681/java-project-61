@@ -53,24 +53,4 @@ public class GamePrime extends Engine {
         }
         return false;
     }
-
-    @Override
-    public final void generateTextResultRound(boolean isCorrect) {
-        if (isCorrect) {
-            System.out.println("Correct!");
-        } else {
-            switch (getAnswer()) {
-                case "yes":
-                    System.out.println("'yes' is wrong answer ;(. Correct answer was '" + "no" + "'");
-                    break;
-                case "no":
-                    System.out.println("'no' is wrong answer ;(. Correct answer was '" + "yes" + "'");
-                    break;
-                default:
-                    System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(.");
-                    break;
-            }
-            System.out.println("Let's try again, " + getUserName() + "!");
-        }
-    }
 }
