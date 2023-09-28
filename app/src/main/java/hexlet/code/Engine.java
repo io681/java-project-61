@@ -61,7 +61,7 @@ public abstract class Engine {
     public final String generateHelperStringForYesNo() {
         if (!checkAnswer() && getAnswer().equals("yes")) {
             return "Correct answer was '" + "no" + "'";
-        } else if (!checkAnswer() && getAnswer().equals("no")){
+        } else if (!checkAnswer() && getAnswer().equals("no")) {
             return "Correct answer was '" + "yes" + "'";
         }
         return "";
