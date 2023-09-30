@@ -26,16 +26,16 @@ public class GameCalc extends Engine {
     }
 
     public final  boolean checkAnswer() {
-        return (getAnswer().equals(resultOperation(getRandomOperation(), getGeneratedNumber(0),
-                getGeneratedNumber(1))));
+        return (Integer.parseInt(getAnswer()) == resultOperation(getRandomOperation(), getGeneratedNumber(0),
+                getGeneratedNumber(1)));
     }
 
-    public final String resultOperation(String operation, int numberOne, int numberTwo) {
+    public final int resultOperation(String operation, int numberOne, int numberTwo) {
         return switch (operation) {
-            case "+" -> Integer.toString(numberOne + numberTwo);
-            case "-" -> Integer.toString(numberOne - numberTwo);
-            case "*" -> Integer.toString(numberOne * numberTwo);
-            default -> "not correct data";
+            case "+" -> numberOne + numberTwo;
+            case "-" -> numberOne - numberTwo;
+            case "*" -> numberOne * numberTwo;
+            default -> throw new RuntimeException("Operator " + operation + " not supported");
         };
     }
 
