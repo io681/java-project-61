@@ -3,6 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import java.util.Scanner;
+
 
 public class GameProgression extends Engine {
 
@@ -10,8 +12,8 @@ public class GameProgression extends Engine {
 
     public static final int RANGE_START_LENGTH_PROGRESSION = 5;
     public static final int RANGE_END_LENGTH_PROGRESSION = 10;
-    public GameProgression() {
-        super();
+    public GameProgression(Scanner scannerBrainGameForSet) {
+        super(scannerBrainGameForSet);
     }
 
     public final void generateDescriptionTask() {

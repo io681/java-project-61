@@ -2,11 +2,11 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import static hexlet.code.utils.GeneratorRandom.MAX_NUMBER_RANDOM;
+import java.util.Scanner;
 
 public class GamePrime extends Engine {
-    public GamePrime() {
-        super();
+    public GamePrime(Scanner scannerBrainGameForSet) {
+        super(scannerBrainGameForSet);
     }
 
     public final void generateDescriptionTask() {

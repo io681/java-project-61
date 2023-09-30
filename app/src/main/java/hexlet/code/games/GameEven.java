@@ -2,9 +2,11 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.Scanner;
+
 public  class GameEven extends Engine {
-    public GameEven() {
-        super();
+    public GameEven(Scanner scannerBrainGameForSet) {
+        super(scannerBrainGameForSet);
     }
     public final void generateDescriptionTask() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");

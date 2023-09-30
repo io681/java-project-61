@@ -2,10 +2,12 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.Scanner;
+
 public class GameGCD extends Engine  {
 
-    public GameGCD() {
-        super();
+    public GameGCD(Scanner scannerBrainGameForSet) {
+        super(scannerBrainGameForSet);
     }
 
     public final void generateDescriptionTask() {

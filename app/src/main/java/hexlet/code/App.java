@@ -22,7 +22,7 @@ public class App {
 
         generateMenu();
         int numberGameChoice = Integer.parseInt(scanner.next());
-        startGameByChoiceNumber(numberGameChoice);
+        startGameByChoiceNumber(numberGameChoice, scanner);
 
         scanner.close();
     }
@@ -41,31 +41,31 @@ public class App {
         System.out.print("Your choice: ");
     }
 
-    public static void startGameByChoiceNumber(int numberGame) {
+    public static void startGameByChoiceNumber(int numberGame, Scanner scannerGame) {
 
         switch (numberGame) {
             case 1:
-                GameEven greetNoGames = new GameEven();
+                GameEven greetNoGames = new GameEven(scannerGame);
                 greetNoGames.greetUser();
                 break;
             case NUMBER_EVEN:
-                GameEven gameEven = new GameEven();
+                GameEven gameEven = new GameEven(scannerGame);
                 gameEven.startGame();
                 break;
             case NUMBER_CALC:
-                GameCalc gameCalc = new GameCalc();
+                GameCalc gameCalc = new GameCalc(scannerGame);
                 gameCalc.startGame();
                 break;
             case  NUMBER_GCD:
-                GameGCD gameGCD = new GameGCD();
+                GameGCD gameGCD = new GameGCD(scannerGame);
                 gameGCD.startGame();
                 break;
             case  NUMBER_PROGRESSION:
-                GameProgression gameProgression = new GameProgression();
+                GameProgression gameProgression = new GameProgression(scannerGame);
                 gameProgression.startGame();
                 break;
             case  NUMBER_PRIME:
-                GamePrime gamePrime = new GamePrime();
+                GamePrime gamePrime = new GamePrime(scannerGame);
                 gamePrime.startGame();
                 break;
             case 0:

@@ -6,7 +6,7 @@ public abstract class Engine {
 
     private  String answer;
     private final int[] generatedNumbers;
-    private final Scanner scanner;
+    private final Scanner scannerBrainGame;
     private String userName;
 
     public static final int MIN_NUMBER_RANDOM = 1;
@@ -14,8 +14,8 @@ public abstract class Engine {
 
     protected static final  int MAX_COUNT_ROUND = 3;
 
-    protected Engine() {
-        this.scanner = new Scanner(System.in);
+    protected Engine(Scanner scannerBrainGameForSet) {
+        this.scannerBrainGame = scannerBrainGameForSet;
         this.generatedNumbers = new int[2];
     }
 
@@ -67,7 +67,7 @@ public abstract class Engine {
     };
 
     public  final void readAnswer() {
-        setAnswer(scanner.next());
+        setAnswer(scannerBrainGame.next());
     }
 
     public final String getAnswer() {
@@ -95,11 +95,9 @@ public abstract class Engine {
     }
 
     public final void greetUser() {
-        Scanner scannerGame = new Scanner(System.in);
-
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        this.userName = scannerGame.next();
+        this.userName = scannerBrainGame.next();
         System.out.println("Hello, " + userName + "!");
     }
 }

@@ -3,13 +3,15 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import java.util.Scanner;
+
 public class GameCalc extends Engine {
 
     private  String randomOperation;
     private final String[] operations = {"+", "-", "*"};
 
-    public GameCalc() {
-        super();
+    public GameCalc(Scanner scannerBrainGameForSet) {
+        super(scannerBrainGameForSet);
     }
 
     public final void generateDescriptionTask() {
