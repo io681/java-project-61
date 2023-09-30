@@ -1,13 +1,12 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.GeneratorRandomOperation;
-
-import static hexlet.code.utils.GeneratorRandom.MAX_NUMBER_RANDOM;
+import hexlet.code.Utils;
 
 public class GameCalc extends Engine {
 
     private  String randomOperation;
+    private final String[] operations = {"+", "-", "*"};
 
     public GameCalc() {
         super();
@@ -18,9 +17,7 @@ public class GameCalc extends Engine {
     }
 
     public final void createQuestion() {
-        GeneratorRandomOperation generatorRandomOperation = new GeneratorRandomOperation();
-
-        setRandomOperation(generatorRandomOperation.createRandomOperation(MAX_NUMBER_RANDOM));
+        setRandomOperation(createRandomOperationForQuestion());
 
         System.out.println("Question: " + getGeneratedNumber(0) + " " + getRandomOperation()
                 + " " + getGeneratedNumber(1));
@@ -37,6 +34,20 @@ public class GameCalc extends Engine {
             case "-" -> Integer.toString(numberOne - numberTwo);
             case "*" -> Integer.toString(numberOne * numberTwo);
             default -> "not correct data";
+        };
+    }
+
+    public final String createRandomOperationForQuestion() {
+        Utils utils = new Utils();
+
+        int generatedNumber = utils.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
+        int numberChoiceForOperation = generatedNumber % operations.length;
+
+        return switch (numberChoiceForOperation) {
+            case 0 -> "+";
+            case 1 -> "-";
+            case 2 -> "*";
+            default -> null;
         };
     }
 
