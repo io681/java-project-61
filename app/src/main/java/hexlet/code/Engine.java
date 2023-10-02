@@ -7,7 +7,7 @@ public abstract class Engine {
     private final Scanner scannerBrainGame;
     private String userName;
 
-    protected String[] dataForQuestions;
+    private final String[] dataForQuestions;
 
     public static final int MIN_NUMBER_RANDOM = 1;
     public static final int MAX_NUMBER_RANDOM = 101;
@@ -27,7 +27,7 @@ public abstract class Engine {
         generateDataForQuestions();
 
         while (roundCorrect < MAX_COUNT_ROUND) {
-            createQuestion(getDataForQuestionByNumber(roundCorrect));
+            createQuestion(getDataForQuestion()[roundCorrect]);
             readAnswer();
             generateTextResultRound(checkAnswer(roundCorrect), roundCorrect);
 
@@ -88,8 +88,12 @@ public abstract class Engine {
         return userName;
     }
 
-    public final String getDataForQuestionByNumber(int numberQuestion) {
-        return this.dataForQuestions[numberQuestion];
+    public final String[] getDataForQuestion() {
+        return this.dataForQuestions;
+    }
+
+    public void setDataForQuestionsByNumber(int numberQuestion, String valueQuestion) {
+        this.dataForQuestions[numberQuestion] = valueQuestion;
     }
 
     public final void greetUser() {

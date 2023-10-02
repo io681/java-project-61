@@ -3,15 +3,15 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GameGCD extends Engine  {
 
-    int[] resultGDK = new int[MAX_COUNT_ROUND];
+    private final int[] resultGDK;
 
     public GameGCD(Scanner scannerBrainGameForSet) {
         super(scannerBrainGameForSet);
+        this.resultGDK = new int[MAX_COUNT_ROUND];
     }
 
     public final void generateDescriptionTask() {
@@ -19,22 +19,19 @@ public class GameGCD extends Engine  {
     }
 
     public final boolean checkAnswer(int numberAnswer) {
-        return (Integer.parseInt(getAnswer()) == getResultGDK(numberAnswer));
+        return (Integer.parseInt(getAnswer()) == getResultGDK()[numberAnswer]);
     }
 
     public final void generateDataForQuestions() {
         Utils generatorNumbersUtil = new Utils();
-        String[] dataForQuestionsGameCalc = new String[MAX_COUNT_ROUND];
 
-        for (var i = 0; i <  dataForQuestionsGameCalc.length; i++) {
+        for (var i = 0; i < MAX_COUNT_ROUND; i++) {
             int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
             int numberTwo = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
 
             setResultGDK(i, resultOperationGDK(numberOne, numberTwo));
-            dataForQuestionsGameCalc[i] = numberOne + " " + numberTwo;
+            setDataForQuestionsByNumber(i, numberOne + " " + numberTwo);
         }
-
-        this.dataForQuestions = Arrays.copyOf(dataForQuestionsGameCalc, dataForQuestionsGameCalc.length);
     }
 
     public final int resultOperationGDK(int numberOne, int numberTwo) {
@@ -49,8 +46,8 @@ public class GameGCD extends Engine  {
         return numberGDK;
     }
 
-    public final int getResultGDK(int indexResultCalc) {
-        return this.resultGDK[indexResultCalc];
+    public final int[] getResultGDK() {
+        return this.resultGDK;
     }
 
     public final void setResultGDK(int indexResultCalc, int valueResultCalc) {

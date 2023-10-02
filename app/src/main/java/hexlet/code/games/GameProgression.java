@@ -3,16 +3,16 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class GameProgression extends Engine {
-    int[] resultHiddenElement = new int[MAX_COUNT_ROUND];
+    private final int[] resultHiddenElements;
     public static final int RANGE_START_LENGTH_PROGRESSION = 5;
     public static final int RANGE_END_LENGTH_PROGRESSION = 10;
     public GameProgression(Scanner scannerBrainGameForSet) {
         super(scannerBrainGameForSet);
+        this.resultHiddenElements = new int[MAX_COUNT_ROUND];
     }
 
     public final void generateDescriptionTask() {
@@ -20,7 +20,7 @@ public class GameProgression extends Engine {
     }
 
     public  final boolean checkAnswer(int numberAnswer) {
-        return Integer.parseInt(getAnswer()) == getResultHiddenElement(numberAnswer);
+        return Integer.parseInt(getAnswer()) == getResultHiddenElements()[numberAnswer];
     }
 
     public final int[] generateProgressionRandom() {
@@ -43,13 +43,11 @@ public class GameProgression extends Engine {
     }
 
     public final void generateDataForQuestions() {
-        String[] dataForQuestionsGameCalc = new String[MAX_COUNT_ROUND];
-
-        for (var i = 0; i <  dataForQuestionsGameCalc.length; i++) {
-            dataForQuestionsGameCalc[i] = makeProgressionWithHiddenElementForQuestion(i, generateProgressionRandom());
+        for (var i = 0; i < MAX_COUNT_ROUND; i++) {
+            String generatedProgressionWithHidden
+                    = makeProgressionWithHiddenElementForQuestion(i, generateProgressionRandom());
+            setDataForQuestionsByNumber(i, generatedProgressionWithHidden);
         }
-
-        this.dataForQuestions = Arrays.copyOf(dataForQuestionsGameCalc, dataForQuestionsGameCalc.length);
     }
 
     public final String makeProgressionWithHiddenElementForQuestion(int currentAnswer, int[] progressionArray) {
@@ -71,11 +69,11 @@ public class GameProgression extends Engine {
         return String.join(" ", progressionArrayStringWithHiddenElement);
     }
 
-    public final int getResultHiddenElement(int indexResultCalc) {
-        return this.resultHiddenElement[indexResultCalc];
+    public final int[] getResultHiddenElements() {
+        return this.resultHiddenElements;
     }
 
     public final void setResultHiddenElement(int indexResultCalc, int valueResultCalc) {
-        this.resultHiddenElement[indexResultCalc] = valueResultCalc;
+        this.resultHiddenElements[indexResultCalc] = valueResultCalc;
     }
 }

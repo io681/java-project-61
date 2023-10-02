@@ -3,7 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public  class GameEven extends Engine {
@@ -16,14 +15,11 @@ public  class GameEven extends Engine {
 
     public final void generateDataForQuestions() {
         Utils generatorNumbersUtil = new Utils();
-        String[] dataForQuestionsGameEven = new String[MAX_COUNT_ROUND];
 
-        for (var i = 0; i <  dataForQuestionsGameEven.length; i++) {
-            dataForQuestionsGameEven[i] = Integer
-                   .toString(generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM));
+        for (var i = 0; i < MAX_COUNT_ROUND; i++) {
+            int numberGenerated = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+            setDataForQuestionsByNumber(i, Integer.toString(numberGenerated));
         }
-
-        this.dataForQuestions = Arrays.copyOf(dataForQuestionsGameEven, dataForQuestionsGameEven.length);
     }
 
     public final boolean checkAnswer(int numberAnswer) {
@@ -31,7 +27,7 @@ public  class GameEven extends Engine {
             return false;
         }
 
-        int numberResultCurrentRound = Integer.parseInt(getDataForQuestionByNumber(numberAnswer));
+        int numberResultCurrentRound = Integer.parseInt(getDataForQuestion()[numberAnswer]);
 
         return ((getAnswer().equals("yes") && numberResultCurrentRound % 2 == 0)
                 || (getAnswer().equals("no") && numberResultCurrentRound % 2 == 1));
