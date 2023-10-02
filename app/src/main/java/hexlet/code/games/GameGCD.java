@@ -19,10 +19,11 @@ public class GameGCD extends Engine  {
     }
 
     public final boolean checkAnswer() {
-        return (getAnswer().equals(resultOperationGDK(getGeneratedNumber(0), getGeneratedNumber(1))));
+        return (Integer.parseInt(getAnswer()) == resultOperationGDK(getGeneratedNumber(0),
+                getGeneratedNumber(1)));
     }
 
-    public final String resultOperationGDK(int numberOne, int numberTwo) {
+    public final int resultOperationGDK(int numberOne, int numberTwo) {
         var numberGDK = 1;
 
         for (var i = 1; i <= numberOne; i++) {
@@ -31,7 +32,7 @@ public class GameGCD extends Engine  {
             }
         }
 
-        return Integer.toString(numberGDK);
+        return numberGDK;
 
     }
 }
