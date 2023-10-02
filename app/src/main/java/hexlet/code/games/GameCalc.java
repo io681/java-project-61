@@ -25,18 +25,18 @@ public class GameCalc extends Engine {
 
     public final void generateDataForQuestions() {
         Utils generatorNumbersUtil = new Utils();
-        String[] DataForQuestionsGameCalc = new String[MAX_COUNT_ROUND];
+        String[] dataForQuestionsGameCalc = new String[MAX_COUNT_ROUND];
 
-        for (var i =0; i <  DataForQuestionsGameCalc.length; i++) {
-            int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
-            int numberTwo = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
+        for (var i = 0; i <  dataForQuestionsGameCalc.length; i++) {
+            int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+            int numberTwo = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
             String operator = createRandomOperatorForQuestion();
 
-            setResultCalc(i, resultOperation(operator,numberOne,numberTwo));
-            DataForQuestionsGameCalc[i] = numberOne + " " + operator + " " + numberTwo;
+            setResultCalc(i, resultOperation(operator, numberOne, numberTwo));
+            dataForQuestionsGameCalc[i] = numberOne + " " + operator + " " + numberTwo;
         }
 
-        this.dataForQuestions = Arrays.copyOf(DataForQuestionsGameCalc,DataForQuestionsGameCalc.length);
+        this.dataForQuestions = Arrays.copyOf(dataForQuestionsGameCalc, dataForQuestionsGameCalc.length);
     }
 
     public final int resultOperation(String operation, int numberOneForResult, int numberTwoForResult) {
@@ -51,7 +51,7 @@ public class GameCalc extends Engine {
     public final String createRandomOperatorForQuestion() {
         Utils utils = new Utils();
 
-        int generatedNumber = utils.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
+        int generatedNumber = utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
         int numberChoiceForOperation = generatedNumber % operations.length;
 
         return switch (numberChoiceForOperation) {
@@ -62,11 +62,11 @@ public class GameCalc extends Engine {
         };
     }
 
-    public int getResultCalc(int indexResultCalc) {
+    public final int getResultCalc(int indexResultCalc) {
         return this.resultCalc[indexResultCalc];
     }
 
-    public void setResultCalc(int indexResultCalc, int valueResultCalc) {
+    public final void setResultCalc(int indexResultCalc, int valueResultCalc) {
         this.resultCalc[indexResultCalc] = valueResultCalc;
     }
 }

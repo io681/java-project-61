@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class GameGCD extends Engine  {
 
-    int[] resultGDK= new int[MAX_COUNT_ROUND];
+    int[] resultGDK = new int[MAX_COUNT_ROUND];
 
     public GameGCD(Scanner scannerBrainGameForSet) {
         super(scannerBrainGameForSet);
@@ -24,17 +24,17 @@ public class GameGCD extends Engine  {
 
     public final void generateDataForQuestions() {
         Utils generatorNumbersUtil = new Utils();
-        String[] DataForQuestionsGameCalc = new String[MAX_COUNT_ROUND];
+        String[] dataForQuestionsGameCalc = new String[MAX_COUNT_ROUND];
 
-        for (var i =0; i <  DataForQuestionsGameCalc.length; i++) {
-            int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
-            int numberTwo = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
+        for (var i = 0; i <  dataForQuestionsGameCalc.length; i++) {
+            int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+            int numberTwo = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
 
-            setResultGDK(i, resultOperationGDK(numberOne,numberTwo));
-            DataForQuestionsGameCalc[i] = numberOne + " " + numberTwo;
+            setResultGDK(i, resultOperationGDK(numberOne, numberTwo));
+            dataForQuestionsGameCalc[i] = numberOne + " " + numberTwo;
         }
 
-        this.dataForQuestions = Arrays.copyOf(DataForQuestionsGameCalc,DataForQuestionsGameCalc.length);
+        this.dataForQuestions = Arrays.copyOf(dataForQuestionsGameCalc, dataForQuestionsGameCalc.length);
     }
 
     public final int resultOperationGDK(int numberOne, int numberTwo) {
@@ -49,11 +49,11 @@ public class GameGCD extends Engine  {
         return numberGDK;
     }
 
-    public int getResultGDK(int indexResultCalc) {
+    public final int getResultGDK(int indexResultCalc) {
         return this.resultGDK[indexResultCalc];
     }
 
-    public void setResultGDK(int indexResultCalc, int valueResultCalc) {
+    public final void setResultGDK(int indexResultCalc, int valueResultCalc) {
         this.resultGDK[indexResultCalc] = valueResultCalc;
     }
 }

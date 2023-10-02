@@ -15,15 +15,15 @@ public  class GameEven extends Engine {
     }
 
     public final void generateDataForQuestions() {
-       Utils generatorNumbersUtil = new Utils();
-       String[] DataForQuestionsGameEven = new String[MAX_COUNT_ROUND];
+        Utils generatorNumbersUtil = new Utils();
+        String[] dataForQuestionsGameEven = new String[MAX_COUNT_ROUND];
 
-       for (var i =0; i <  DataForQuestionsGameEven.length; i++) {
-           DataForQuestionsGameEven[i] = Integer
-                   .toString(generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM));
-       }
+        for (var i = 0; i <  dataForQuestionsGameEven.length; i++) {
+            dataForQuestionsGameEven[i] = Integer
+                   .toString(generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM));
+        }
 
-       this.dataForQuestions = Arrays.copyOf(DataForQuestionsGameEven,DataForQuestionsGameEven.length);
+        this.dataForQuestions = Arrays.copyOf(dataForQuestionsGameEven, dataForQuestionsGameEven.length);
     }
 
     public final boolean checkAnswer(int numberAnswer) {

@@ -57,7 +57,8 @@ public abstract class Engine {
         if (isCorrect) {
             System.out.println("Correct!");
         } else {
-            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(." + generateHelperStringForYesNo(currentRound));
+            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(."
+                    + generateHelperStringForYesNo(currentRound));
             System.out.println("Let's try again, " + getUserName() + "!");
         }
     }
