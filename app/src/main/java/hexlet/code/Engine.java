@@ -92,7 +92,7 @@ public abstract class Engine {
         return this.dataForQuestions;
     }
 
-    public void setDataForQuestionsByNumber(int numberQuestion, String valueQuestion) {
+    public final void setDataForQuestionsByNumber(int numberQuestion, String valueQuestion) {
         this.dataForQuestions[numberQuestion] = valueQuestion;
     }
 
