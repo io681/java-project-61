@@ -3,12 +3,13 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GameCalc extends Engine {
-
     private  String randomOperation;
     private final String[] operations = {"+", "-", "*"};
+    int[] resultCalc = new int[MAX_COUNT_ROUND];
 
     public GameCalc(Scanner scannerBrainGameForSet) {
         super(scannerBrainGameForSet);
@@ -18,28 +19,36 @@ public class GameCalc extends Engine {
         System.out.println("What is the result of the expression?");
     }
 
-    public final void createQuestion() {
-        setRandomOperation(createRandomOperationForQuestion());
-
-        System.out.println("Question: " + getGeneratedNumber(0) + " " + getRandomOperation()
-                + " " + getGeneratedNumber(1));
+    public final  boolean checkAnswer(int numberAnswer) {
+        return (Integer.parseInt(getAnswer()) == getResultCalc(numberAnswer));
     }
 
-    public final  boolean checkAnswer() {
-        return (Integer.parseInt(getAnswer()) == resultOperation(getRandomOperation(), getGeneratedNumber(0),
-                getGeneratedNumber(1)));
+    public final void generateDataForQuestions() {
+        Utils generatorNumbersUtil = new Utils();
+        String[] DataForQuestionsGameCalc = new String[MAX_COUNT_ROUND];
+
+        for (var i =0; i <  DataForQuestionsGameCalc.length; i++) {
+            int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
+            int numberTwo = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
+            String operator = createRandomOperatorForQuestion();
+
+            setResultCalc(i, resultOperation(operator,numberOne,numberTwo));
+            DataForQuestionsGameCalc[i] = numberOne + " " + operator + " " + numberTwo;
+        }
+
+        this.dataForQuestions = Arrays.copyOf(DataForQuestionsGameCalc,DataForQuestionsGameCalc.length);
     }
 
-    public final int resultOperation(String operation, int numberOne, int numberTwo) {
+    public final int resultOperation(String operation, int numberOneForResult, int numberTwoForResult) {
         return switch (operation) {
-            case "+" -> numberOne + numberTwo;
-            case "-" -> numberOne - numberTwo;
-            case "*" -> numberOne * numberTwo;
+            case "+" -> numberOneForResult + numberTwoForResult;
+            case "-" -> numberOneForResult - numberTwoForResult;
+            case "*" -> numberOneForResult * numberTwoForResult;
             default -> throw new RuntimeException("Operator " + operation + " not supported");
         };
     }
 
-    public final String createRandomOperationForQuestion() {
+    public final String createRandomOperatorForQuestion() {
         Utils utils = new Utils();
 
         int generatedNumber = utils.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
@@ -53,13 +62,11 @@ public class GameCalc extends Engine {
         };
     }
 
-    public final String getRandomOperation() {
-        return randomOperation;
+    public int getResultCalc(int indexResultCalc) {
+        return this.resultCalc[indexResultCalc];
     }
 
-    public final void setRandomOperation(String randomOperationForSet) {
-        this.randomOperation = randomOperationForSet;
+    public void setResultCalc(int indexResultCalc, int valueResultCalc) {
+        this.resultCalc[indexResultCalc] = valueResultCalc;
     }
-
-
 }

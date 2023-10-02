@@ -3,11 +3,11 @@ package hexlet.code;
 import java.util.Scanner;
 
 public abstract class Engine {
-
     private  String answer;
-    private final int[] generatedNumbers;
     private final Scanner scannerBrainGame;
     private String userName;
+
+    protected String[] dataForQuestions;
 
     public static final int MIN_NUMBER_RANDOM = 1;
     public static final int MAX_NUMBER_RANDOM = 101;
@@ -16,7 +16,7 @@ public abstract class Engine {
 
     protected Engine(Scanner scannerBrainGameForSet) {
         this.scannerBrainGame = scannerBrainGameForSet;
-        this.generatedNumbers = new int[2];
+        this.dataForQuestions = new String[MAX_COUNT_ROUND];
     }
 
     public final void startGame() {
@@ -24,14 +24,14 @@ public abstract class Engine {
 
         greetUser();
         generateDescriptionTask();
+        generateDataForQuestions();
 
         while (roundCorrect < MAX_COUNT_ROUND) {
-            generateNumbers();
-            createQuestion();
+            createQuestion(getDataForQuestionByNumber(roundCorrect));
             readAnswer();
-            generateTextResultRound(checkAnswer());
+            generateTextResultRound(checkAnswer(roundCorrect), roundCorrect);
 
-            if (checkAnswer()) {
+            if (checkAnswer(roundCorrect)) {
                 roundCorrect += 1;
             } else {
                 break;
@@ -43,24 +43,29 @@ public abstract class Engine {
         }
     }
 
-    public  abstract void createQuestion();
+    public final void createQuestion(String currentDataForQuestion) {
+        System.out.println("Question: " + currentDataForQuestion);
+    }
 
-    public abstract boolean checkAnswer();
+    public abstract void generateDataForQuestions();
+
+    public abstract boolean checkAnswer(int currentRound);
 
     public abstract void generateDescriptionTask();
 
-    public final void generateTextResultRound(boolean isCorrect) {
+    public final void generateTextResultRound(boolean isCorrect, int currentRound) {
         if (isCorrect) {
             System.out.println("Correct!");
         } else {
-            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(." + generateHelperStringForYesNo());
+            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(." + generateHelperStringForYesNo(currentRound));
             System.out.println("Let's try again, " + getUserName() + "!");
         }
-    };
-    public final String generateHelperStringForYesNo() {
-        if (!checkAnswer() && getAnswer().equals("yes")) {
+    }
+
+    public final String generateHelperStringForYesNo(int currentRound) {
+        if (!checkAnswer(currentRound) && getAnswer().equals("yes")) {
             return "Correct answer was '" + "no" + "'";
-        } else if (!checkAnswer() && getAnswer().equals("no")) {
+        } else if (!checkAnswer(currentRound) && getAnswer().equals("no")) {
             return "Correct answer was '" + "yes" + "'";
         }
         return "";
@@ -82,16 +87,8 @@ public abstract class Engine {
         return userName;
     }
 
-    public final void generateNumbers() {
-        Utils generatorNumbersUtil = new Utils();
-
-        for (var i = 0; i < generatedNumbers.length; i++) {
-            generatedNumbers[i] = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
-        }
-    }
-
-    public final int getGeneratedNumber(int positionNumber) {
-        return generatedNumbers[positionNumber];
+    public final String getDataForQuestionByNumber(int numberQuestion) {
+        return this.dataForQuestions[numberQuestion];
     }
 
     public final void greetUser() {

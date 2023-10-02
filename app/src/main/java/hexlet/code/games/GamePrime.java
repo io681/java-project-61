@@ -1,7 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GamePrime extends Engine {
@@ -13,19 +15,27 @@ public class GamePrime extends Engine {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 
-    public  final void createQuestion() {
-        System.out.println("Question: " + getGeneratedNumber(0));
-    }
-
-    public  final boolean checkAnswer() {
+    public  final boolean checkAnswer(int numberAnswer) {
         if (!getAnswer().equals("yes") && !getAnswer().equals("no")) {
             return false;
         }
 
-        boolean result = checkContainInArray(generateArrayOfPrime(), Integer.toString(getGeneratedNumber(0)));
+        boolean result = checkContainInArray(generateArrayOfPrime(), getDataForQuestionByNumber(numberAnswer));
 
         return ((getAnswer().equals("yes") && result) || (getAnswer().equals("no") && !result));
     }
+    public final void generateDataForQuestions() {
+        Utils generatorNumbersUtil = new Utils();
+        String[] DataForQuestionsGameEven = new String[MAX_COUNT_ROUND];
+
+        for (var i =0; i <  DataForQuestionsGameEven.length; i++) {
+            DataForQuestionsGameEven[i] = Integer
+                    .toString(generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM));
+        }
+
+        this.dataForQuestions = Arrays.copyOf(DataForQuestionsGameEven,DataForQuestionsGameEven.length);
+    }
+
     public final  String[] generateArrayOfPrime() {
         String numbersPrime = "";
         int countOperation = 0;
@@ -51,6 +61,7 @@ public class GamePrime extends Engine {
                 return true;
             }
         }
+
         return false;
     }
 }

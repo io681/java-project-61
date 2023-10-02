@@ -3,13 +3,12 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class GameProgression extends Engine {
-
-    private int valueHiddenNumber;
-
+    int[] resultHiddenElement = new int[MAX_COUNT_ROUND];
     public static final int RANGE_START_LENGTH_PROGRESSION = 5;
     public static final int RANGE_END_LENGTH_PROGRESSION = 10;
     public GameProgression(Scanner scannerBrainGameForSet) {
@@ -20,22 +19,16 @@ public class GameProgression extends Engine {
         System.out.println("What number is missing in the progression?");
     }
 
-    public  final void createQuestion() {
-        String resultProgressionForQuestion = String
-                .join(" ",makeProgressionWithHiddenElementForQuestion(generateProgressionRandom()));
-        System.out.println("Question: " + resultProgressionForQuestion);
-    }
-
-    public  final boolean checkAnswer() {
-        return Integer.parseInt(getAnswer()) == getValueHiddenNumber();
+    public  final boolean checkAnswer(int numberAnswer) {
+        return Integer.parseInt(getAnswer()) == getResultHiddenElement(numberAnswer);
     }
 
     public final int[] generateProgressionRandom() {
-        Utils utils = new Utils();
+        Utils generatorNumbersUtil = new Utils();
 
-        int startNumberProgression = getGeneratedNumber(0);
-        int stepProgression = getGeneratedNumber(1);
-        int lengthProgression = utils.createNumberInRange(RANGE_START_LENGTH_PROGRESSION,
+        int startNumberProgression = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
+        int stepProgression = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM,MAX_NUMBER_RANDOM);
+        int lengthProgression = generatorNumbersUtil.createNumberInRange(RANGE_START_LENGTH_PROGRESSION,
                 RANGE_END_LENGTH_PROGRESSION);
         int[] progressionNumbers = new int[lengthProgression];
 
@@ -49,10 +42,21 @@ public class GameProgression extends Engine {
         return progressionNumbers;
     }
 
-    public final String[] makeProgressionWithHiddenElementForQuestion(int[] progressionArray) {
+    public final void generateDataForQuestions() {
+        String[] DataForQuestionsGameCalc = new String[MAX_COUNT_ROUND];
+
+        for (var i =0; i <  DataForQuestionsGameCalc.length; i++) {
+            DataForQuestionsGameCalc[i] = makeProgressionWithHiddenElementForQuestion(i,generateProgressionRandom());
+        }
+
+        this.dataForQuestions = Arrays.copyOf(DataForQuestionsGameCalc,DataForQuestionsGameCalc.length);
+    }
+
+    public final String makeProgressionWithHiddenElementForQuestion(int currentAnswer ,int[] progressionArray) {
         Utils utils = new Utils();
         int positionHidden = utils.createNumberInRange(0, progressionArray.length - 1);
-        setValueHiddenNumber(progressionArray[positionHidden]);
+
+        setResultHiddenElement(currentAnswer, progressionArray[positionHidden]);
 
         String[] progressionArrayStringWithHiddenElement = new String[progressionArray.length];
 
@@ -64,15 +68,14 @@ public class GameProgression extends Engine {
             progressionArrayStringWithHiddenElement[i] = Integer.toString(progressionArray[i]);
         }
 
-        return progressionArrayStringWithHiddenElement;
+        return String.join(" ", progressionArrayStringWithHiddenElement);
     }
 
-    public final int getValueHiddenNumber() {
-        return valueHiddenNumber;
+    public int getResultHiddenElement(int indexResultCalc) {
+        return this.resultHiddenElement[indexResultCalc];
     }
 
-    public final void setValueHiddenNumber(int valueHiddenNumberForSet) {
-        this.valueHiddenNumber = valueHiddenNumberForSet;
+    public void setResultHiddenElement(int indexResultCalc, int valueResultCalc) {
+        this.resultHiddenElement[indexResultCalc] = valueResultCalc;
     }
-
 }
