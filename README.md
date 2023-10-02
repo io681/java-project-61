@@ -5,6 +5,19 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/761d42c2ca0aac783eba/test_coverage)](https://codeclimate.com/github/io681/java-project-61/test_coverage)
 
+
+###Консольная программа "Игры разума"###
+
+
+*Команды утилиты make:*
+
+`make run-dist` - запуск программы
+
+`make clean` - очистка сборки
+
+
+*Записи аскинемы:*
+
 Step 5
 
 https://asciinema.org/a/7Arvi4RQ3y7VqI1ZNmzdloZcj
