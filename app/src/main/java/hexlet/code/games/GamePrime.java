@@ -1,34 +1,39 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Scanner;
 
-public class GamePrime extends Engine {
-    public GamePrime(Scanner scannerBrainGameForSet) {
-        super(scannerBrainGameForSet);
+import static hexlet.code.Engine.MAX_COUNT_ROUND;
+import static hexlet.code.Engine.MIN_NUMBER_RANDOM;
+import static hexlet.code.Engine.MAX_NUMBER_RANDOM;
+import static hexlet.code.Engine.STRUCTURE_ROUND;
+import static hexlet.code.Engine.POSITION_QUESTION_ONE;
+import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
+
+public class GamePrime {
+
+    private final String[][] dataForGamePrime;
+    public GamePrime() {
+        this.dataForGamePrime = new String[MAX_COUNT_ROUND][STRUCTURE_ROUND.length];
     }
 
-    public final void generateDescriptionTask() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-    }
-
-    public  final boolean checkAnswer(int numberAnswer) {
-        if (!getAnswer().equals("yes") && !getAnswer().equals("no")) {
-            return false;
-        }
-
-        boolean result = checkContainInArray(generateArrayOfPrime(), getDataForQuestion()[numberAnswer]);
-
-        return ((getAnswer().equals("yes") && result) || (getAnswer().equals("no") && !result));
-    }
-    public final void generateDataForQuestions() {
+    public final void generateDataForGamePrime() {
         Utils generatorNumbersUtil = new Utils();
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
-            int numberGenerated = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
-            setDataForQuestionsByNumber(i, Integer.toString(numberGenerated));
+            int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+
+            String question = Integer.toString(numberOne);
+            String  correctResult = "";
+
+            if (isPrime(numberOne)) {
+                correctResult += "yes";
+            } else {
+                correctResult += "no";
+            }
+
+            setDataForGamePrimeByIndex(i, POSITION_QUESTION_ONE, question);
+            setDataForGamePrimeByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
         }
     }
 
@@ -51,13 +56,23 @@ public class GamePrime extends Engine {
         return numbersPrime.split(" ");
     }
 
-    public final boolean checkContainInArray(String[] arrayCheck, String elementCheck) {
-        for (String element: arrayCheck) {
-            if (element.equals(elementCheck)) {
+    public final boolean isPrime(int numberCheckPrime) {
+        String[] arrayCheckPrime = generateArrayOfPrime();
+
+        for (String element: arrayCheckPrime) {
+            if (element.equals(Integer.toString(numberCheckPrime))) {
                 return true;
             }
         }
 
         return false;
+    }
+
+    public String[][] getDataForGamePrime() {
+        return dataForGamePrime;
+    }
+
+    public void setDataForGamePrimeByIndex(int indexOne, int indexTwo, String value) {
+        this.dataForGamePrime[indexOne][indexTwo] = value;
     }
 }

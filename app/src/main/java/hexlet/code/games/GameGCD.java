@@ -1,36 +1,32 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Scanner;
+import static hexlet.code.Engine.MAX_COUNT_ROUND;
+import static hexlet.code.Engine.MIN_NUMBER_RANDOM;
+import static hexlet.code.Engine.MAX_NUMBER_RANDOM;
+import static hexlet.code.Engine.STRUCTURE_ROUND;
+import static hexlet.code.Engine.POSITION_QUESTION_ONE;
+import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 
-public class GameGCD extends Engine  {
+public class GameGCD {
+    private final String[][] dataForGameGDK;
 
-    private final int[] resultGDK;
-
-    public GameGCD(Scanner scannerBrainGameForSet) {
-        super(scannerBrainGameForSet);
-        this.resultGDK = new int[MAX_COUNT_ROUND];
+    public GameGCD() {
+        this.dataForGameGDK = new String[MAX_COUNT_ROUND][STRUCTURE_ROUND.length];
     }
-
-    public final void generateDescriptionTask() {
-        System.out.println("Find the greatest common divisor of given numbers.");
-    }
-
-    public final boolean checkAnswer(int numberAnswer) {
-        return (Integer.parseInt(getAnswer()) == getResultGDK()[numberAnswer]);
-    }
-
-    public final void generateDataForQuestions() {
+    public final void generateDataForGameGDK() {
         Utils generatorNumbersUtil = new Utils();
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
             int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
             int numberTwo = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
 
-            setResultGDK(i, resultOperationGDK(numberOne, numberTwo));
-            setDataForQuestionsByNumber(i, numberOne + " " + numberTwo);
+            String question = numberOne + " " + numberTwo;
+            String  correctResult = Integer.toString(resultOperationGDK(numberOne, numberTwo));
+
+            setDataForGameGDKByIndex(i, POSITION_QUESTION_ONE, question);
+            setDataForGameGDKByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
         }
     }
 
@@ -46,12 +42,12 @@ public class GameGCD extends Engine  {
         return numberGDK;
     }
 
-    public final int[] getResultGDK() {
-        return this.resultGDK;
+    public String[][] getDataForGameGDK() {
+        return dataForGameGDK;
     }
 
-    public final void setResultGDK(int indexResultCalc, int valueResultCalc) {
-        this.resultGDK[indexResultCalc] = valueResultCalc;
+    public void setDataForGameGDKByIndex(int indexOne, int indexTwo, String value) {
+        this.dataForGameGDK[indexOne][indexTwo] = value;
     }
 }
 

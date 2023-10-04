@@ -1,37 +1,37 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Scanner;
+import static hexlet.code.Engine.MAX_COUNT_ROUND;
+import static hexlet.code.Engine.MIN_NUMBER_RANDOM;
+import static hexlet.code.Engine.MAX_NUMBER_RANDOM;
+import static hexlet.code.Engine.STRUCTURE_ROUND;
+import static hexlet.code.Engine.POSITION_QUESTION_ONE;
+import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 
-public class GameCalc extends Engine {
+
+public class GameCalc {
     private final String[] operations = {"+", "-", "*"};
-    private final int[] resultCalc;
 
-    public GameCalc(Scanner scannerBrainGameForSet) {
-        super(scannerBrainGameForSet);
-        this.resultCalc = new int[MAX_COUNT_ROUND];
+    private final String[][] dataForGameCalc;
+
+    public GameCalc() {
+        this.dataForGameCalc = new String[MAX_COUNT_ROUND][STRUCTURE_ROUND.length];
     }
 
-    public final void generateDescriptionTask() {
-        System.out.println("What is the result of the expression?");
-    }
-
-    public final  boolean checkAnswer(int numberAnswer) {
-        return (Integer.parseInt(getAnswer()) == getResultCalc()[numberAnswer]);
-    }
-
-    public final void generateDataForQuestions() {
+    public final void generateDataForGameCalc() {
         Utils generatorNumbersUtil = new Utils();
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
             int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
             int numberTwo = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
-            String operator = createRandomOperatorForQuestion();
+            String operator = createRandomOperator();
 
-            setResultCalc(i, calculateOperation(operator, numberOne, numberTwo));
-            setDataForQuestionsByNumber(i, numberOne + " " + operator + " " + numberTwo);
+            String question = numberOne + " " + operator + " " + numberTwo;
+            String  correctResult = Integer.toString(calculateOperation(operator, numberOne, numberTwo));
+
+            setDataForGameCalcByIndex(i, POSITION_QUESTION_ONE, question);
+            setDataForGameCalcByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
         }
     }
 
@@ -44,18 +44,18 @@ public class GameCalc extends Engine {
         };
     }
 
-    public final String createRandomOperatorForQuestion() {
+    public final String createRandomOperator() {
         Utils utils = new Utils();
 
         return operations[utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM) % operations.length];
 
     }
 
-    public final int[] getResultCalc() {
-        return this.resultCalc;
+    public String[][] getDataForGameCalc() {
+        return dataForGameCalc;
     }
 
-    public final void setResultCalc(int indexResultCalc, int valueResultCalc) {
-        this.resultCalc[indexResultCalc] = valueResultCalc;
+    public void setDataForGameCalcByIndex(int indexOne, int indexTwo, String value) {
+        this.dataForGameCalc[indexOne][indexTwo] = value;
     }
 }
