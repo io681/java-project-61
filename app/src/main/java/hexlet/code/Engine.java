@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Engine {
     private  String answer;
     private final Scanner scannerBrainGame;
+
     private String userName;
 
     public static final int MIN_NUMBER_RANDOM = 1;
@@ -27,7 +28,7 @@ public class Engine {
             readAnswer();
             boolean resultCheck = checkAnswer(getAnswer(),
                     dataForCurrentStartGame[roundCorrect][POSITION_CORRECT_RESULT_ONE]);
-            generateTextResultRound(resultCheck, roundCorrect);
+            generateTextResultRound(resultCheck);
 
             if (resultCheck) {
                 roundCorrect += 1;
@@ -47,7 +48,7 @@ public class Engine {
         return answerCorrect.equals(answerUser);
     }
 
-    public final void generateTextResultRound(boolean isCorrect, int currentRound) {
+    public final void generateTextResultRound(boolean isCorrect) {
         if (isCorrect) {
             System.out.println("Correct!");
         } else {
@@ -82,10 +83,14 @@ public class Engine {
         return this.userName;
     }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public final void greetUser() {
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        this.userName = getScannerBrainGame().next();
+        setUserName(getScannerBrainGame().next());
         System.out.println("Hello, " + getUserName() + "!");
     }
 

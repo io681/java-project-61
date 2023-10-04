@@ -6,7 +6,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/761d42c2ca0aac783eba/test_coverage)](https://codeclimate.com/github/io681/java-project-61/test_coverage)
 
 
-###Консольная программа "Игры разума"###
+###Консольная программа "Игры разума"
 
 
 *Команды утилиты make:*
