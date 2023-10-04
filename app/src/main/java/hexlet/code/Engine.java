@@ -15,8 +15,8 @@ public class Engine {
     public static final int POSITION_QUESTION_ONE = 0;
     public static final int POSITION_CORRECT_RESULT_ONE = 1;
 
-    public Engine(Scanner scannerBrainGameForSet) {
-        this.scannerBrainGame = scannerBrainGameForSet;
+    public Engine() {
+        this.scannerBrainGame = new Scanner(System.in);
     }
 
     public final void startGame(String[][] dataForCurrentStartGame) {
@@ -39,6 +39,8 @@ public class Engine {
         if (roundCorrect == MAX_COUNT_ROUND) {
             System.out.println("Congratulations, " + getUserName() + "!");
         }
+
+        getScannerBrainGame().close();
     }
 
     public boolean checkAnswer(String answerUser, String answerCorrect) {
@@ -65,7 +67,7 @@ public class Engine {
     }
 
     public  final void readAnswer() {
-        setAnswer(scannerBrainGame.next());
+        setAnswer(getScannerBrainGame().next());
     }
 
     public final String getAnswer() {

@@ -19,7 +19,7 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Engine engine = new Engine(scanner);
+        Engine engine = new Engine();
 
         generateMenu();
         int numberGameChoice = Integer.parseInt(scanner.next());
