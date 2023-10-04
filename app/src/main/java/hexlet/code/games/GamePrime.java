@@ -68,11 +68,11 @@ public class GamePrime {
         return false;
     }
 
-    public String[][] getDataForGamePrime() {
+    public final String[][] getDataForGamePrime() {
         return dataForGamePrime;
     }
 
-    public void setDataForGamePrimeByIndex(int indexOne, int indexTwo, String value) {
+    public final void setDataForGamePrimeByIndex(int indexOne, int indexTwo, String value) {
         this.dataForGamePrime[indexOne][indexTwo] = value;
     }
 }

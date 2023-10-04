@@ -51,11 +51,11 @@ public class GameCalc {
 
     }
 
-    public String[][] getDataForGameCalc() {
+    public final String[][] getDataForGameCalc() {
         return dataForGameCalc;
     }
 
-    public void setDataForGameCalcByIndex(int indexOne, int indexTwo, String value) {
+    public final void setDataForGameCalcByIndex(int indexOne, int indexTwo, String value) {
         this.dataForGameCalc[indexOne][indexTwo] = value;
     }
 }

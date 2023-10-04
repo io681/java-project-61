@@ -44,7 +44,7 @@ public class Engine {
         getScannerBrainGame().close();
     }
 
-    public boolean checkAnswer(String answerUser, String answerCorrect) {
+    public final boolean checkAnswer(String answerUser, String answerCorrect) {
         return answerCorrect.equals(answerUser);
     }
 
@@ -83,7 +83,7 @@ public class Engine {
         return this.userName;
     }
 
-    public void setUserName(String userName) {
+    public final void setUserName(String userName) {
         this.userName = userName;
     }
 
@@ -94,7 +94,7 @@ public class Engine {
         System.out.println("Hello, " + getUserName() + "!");
     }
 
-    public Scanner getScannerBrainGame() {
+    public final Scanner getScannerBrainGame() {
         return this.scannerBrainGame;
     }
 }

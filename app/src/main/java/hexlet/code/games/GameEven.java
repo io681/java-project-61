@@ -42,11 +42,11 @@ public  class GameEven {
         return checkNumberForIsEven % 2 == 0;
     }
 
-    public String[][] getDataForGameEven() {
+    public final String[][] getDataForGameEven() {
         return dataForGameEven;
     }
 
-    public void setDataForGameEvenByIndex(int indexOne, int indexTwo, String value) {
+    public final void setDataForGameEvenByIndex(int indexOne, int indexTwo, String value) {
         this.dataForGameEven[indexOne][indexTwo] = value;
     }
 }

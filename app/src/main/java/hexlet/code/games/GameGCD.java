@@ -42,11 +42,11 @@ public class GameGCD {
         return numberGDK;
     }
 
-    public String[][] getDataForGameGDK() {
+    public final String[][] getDataForGameGDK() {
         return dataForGameGDK;
     }
 
-    public void setDataForGameGDKByIndex(int indexOne, int indexTwo, String value) {
+    public final void setDataForGameGDKByIndex(int indexOne, int indexTwo, String value) {
         this.dataForGameGDK[indexOne][indexTwo] = value;
     }
 }

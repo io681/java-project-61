@@ -71,11 +71,11 @@ public class GameProgression {
         return utils.createNumberInRange(0, progressionArray.length - 1);
     }
 
-    public String[][] getDataForGameProgression() {
+    public final String[][] getDataForGameProgression() {
         return dataForGameProgression;
     }
 
-    public void setDataForGameProgressionByIndex(int indexOne, int indexTwo, String value) {
+    public final void setDataForGameProgressionByIndex(int indexOne, int indexTwo, String value) {
         this.dataForGameProgression[indexOne][indexTwo] = value;
     }
 }
