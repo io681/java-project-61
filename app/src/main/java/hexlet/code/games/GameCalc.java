@@ -47,15 +47,8 @@ public class GameCalc extends Engine {
     public final String createRandomOperatorForQuestion() {
         Utils utils = new Utils();
 
-        int generatedNumber = utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
-        int numberChoiceForOperation = generatedNumber % operations.length;
+        return operations[utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM) % operations.length];
 
-        return switch (numberChoiceForOperation) {
-            case 0 -> "+";
-            case 1 -> "-";
-            case 2 -> "*";
-            default -> null;
-        };
     }
 
     public final int[] getResultCalc() {
