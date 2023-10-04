@@ -30,12 +30,12 @@ public class GameCalc extends Engine {
             int numberTwo = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
             String operator = createRandomOperatorForQuestion();
 
-            setResultCalc(i, resultOperation(operator, numberOne, numberTwo));
+            setResultCalc(i, calculateOperation(operator, numberOne, numberTwo));
             setDataForQuestionsByNumber(i, numberOne + " " + operator + " " + numberTwo);
         }
     }
 
-    public final int resultOperation(String operation, int numberOneForResult, int numberTwoForResult) {
+    public final int calculateOperation(String operation, int numberOneForResult, int numberTwoForResult) {
         return switch (operation) {
             case "+" -> numberOneForResult + numberTwoForResult;
             case "-" -> numberOneForResult - numberTwoForResult;
