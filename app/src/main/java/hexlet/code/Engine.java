@@ -83,8 +83,8 @@ public class Engine {
         return this.userName;
     }
 
-    public final void setUserName(String userName) {
-        this.userName = userName;
+    public final void setUserName(String userNameForSet) {
+        this.userName = userNameForSet;
     }
 
     public final void greetUser() {
