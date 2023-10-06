@@ -5,15 +5,11 @@ import hexlet.code.games.Games;
 import java.util.Scanner;
 
 public class Engine {
-    private  String answer;
     private final Scanner scannerBrainGame;
-
-    private String userName;
 
     public static final int MIN_NUMBER_RANDOM = 1;
     public static final int MAX_NUMBER_RANDOM = 101;
     public static final  int MAX_COUNT_ROUND = 3;
-
     public static final String[] STRUCTURE_ROUND = {"QuestionOne", "CorrectResultOne"};
     public static final int POSITION_QUESTION_ONE = 0;
     public static final int POSITION_CORRECT_RESULT_ONE = 1;
@@ -24,17 +20,17 @@ public class Engine {
 
     public final void startGame(Games currentGame) {
         var roundCorrect = 0;
-        greetUser();
+        String userNameForCurrentGame = greetUser();
 
         System.out.println(currentGame.getRuleGame());
         currentGame.generateDataForGame();
 
         while (roundCorrect < MAX_COUNT_ROUND) {
             System.out.println("Question: " + currentGame.getDataForGame()[roundCorrect][POSITION_QUESTION_ONE]);
-            readAnswer();
-            boolean resultCheck = checkAnswer(getAnswer(),
+            String currentAnswer = getScannerBrainGame().next();
+            boolean resultCheck = checkAnswer(currentAnswer,
                     currentGame.getDataForGame()[roundCorrect][POSITION_CORRECT_RESULT_ONE]);
-            generateTextResultRound(resultCheck);
+            generateTextResultRound(resultCheck, currentAnswer, userNameForCurrentGame);
 
             if (resultCheck) {
                 roundCorrect += 1;
@@ -44,7 +40,7 @@ public class Engine {
         }
 
         if (roundCorrect == MAX_COUNT_ROUND) {
-            System.out.println("Congratulations, " + getUserName() + "!");
+            System.out.println("Congratulations, " + userNameForCurrentGame + "!");
         }
 
         getScannerBrainGame().close();
@@ -54,50 +50,31 @@ public class Engine {
         return answerCorrect.equals(answerUser);
     }
 
-    public final void generateTextResultRound(boolean isCorrect) {
+    public final void generateTextResultRound(boolean isCorrect, String answerForTextResult, String UserNameForTextResult) {
         if (isCorrect) {
             System.out.println("Correct!");
         } else {
-            System.out.println("'" + getAnswer() + "'" + " is wrong answer ;(."
-                    + generateHelperStringForYesNo());
-            System.out.println("Let's try again, " + getUserName() + "!");
+            System.out.println("'" + answerForTextResult + "'" + " is wrong answer ;(."
+                    + generateHelperStringForYesNo(answerForTextResult));
+            System.out.println("Let's try again, " + UserNameForTextResult + "!");
         }
     }
 
-    public final String generateHelperStringForYesNo() {
-        if (getAnswer().equals("yes")) {
+    public final String generateHelperStringForYesNo(String answerForGenerateHelperStringForYesNo) {
+        if (answerForGenerateHelperStringForYesNo.equals("yes")) {
             return "Correct answer was '" + "no" + "'";
-        } else if (getAnswer().equals("no")) {
+        } else if (answerForGenerateHelperStringForYesNo.equals("no")) {
             return "Correct answer was '" + "yes" + "'";
         }
         return "";
     }
 
-    public  final void readAnswer() {
-        setAnswer(getScannerBrainGame().next());
-    }
-
-    public final String getAnswer() {
-        return answer;
-    }
-
-    public final void setAnswer(String answerForSet) {
-        this.answer = answerForSet;
-    }
-
-    public final String getUserName() {
-        return this.userName;
-    }
-
-    public final void setUserName(String userNameForSet) {
-        this.userName = userNameForSet;
-    }
-
-    public final void greetUser() {
+    public final String greetUser() {
         System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        setUserName(getScannerBrainGame().next());
-        System.out.println("Hello, " + getUserName() + "!");
+        String currentUserName = getScannerBrainGame().next();
+        System.out.println("Hello, " + currentUserName + "!");
+        return currentUserName;
     }
 
     public final Scanner getScannerBrainGame() {
