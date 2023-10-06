@@ -24,6 +24,7 @@ public class Engine {
 
     public final void startGame(Games currentGame) {
         var roundCorrect = 0;
+        greetUser();
 
         System.out.println(currentGame.getRuleGame());
         currentGame.generateDataForGame();
