@@ -6,18 +6,15 @@ import hexlet.code.Utils;
 import static hexlet.code.Engine.MAX_COUNT_ROUND;
 import static hexlet.code.Engine.MIN_NUMBER_RANDOM;
 import static hexlet.code.Engine.MAX_NUMBER_RANDOM;
-import static hexlet.code.Engine.STRUCTURE_ROUND;
 import static hexlet.code.Engine.POSITION_QUESTION_ONE;
 import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 
-public class GamePrime {
-
-    private final String[][] dataForGamePrime;
+public class GamePrime extends Games {
     public GamePrime() {
-        this.dataForGamePrime = new String[MAX_COUNT_ROUND][STRUCTURE_ROUND.length];
+        super();
     }
 
-    public final void generateDataForGamePrime() {
+    public final void generateDataForGame() {
         Utils generatorNumbersUtil = new Utils();
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
@@ -32,8 +29,8 @@ public class GamePrime {
                 correctResult += "no";
             }
 
-            setDataForGamePrimeByIndex(i, POSITION_QUESTION_ONE, question);
-            setDataForGamePrimeByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
+            setDataForGameByIndex(i, POSITION_QUESTION_ONE, question);
+            setDataForGameByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
         }
     }
 
@@ -67,12 +64,7 @@ public class GamePrime {
 
         return false;
     }
-
-    public final String[][] getDataForGamePrime() {
-        return dataForGamePrime;
-    }
-
-    public final void setDataForGamePrimeByIndex(int indexOne, int indexTwo, String value) {
-        this.dataForGamePrime[indexOne][indexTwo] = value;
+    public final String getRuleGame() {
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 }

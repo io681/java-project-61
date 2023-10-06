@@ -19,11 +19,11 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Engine engine = new Engine();
+//        Engine engine = new Engine();
 
         generateMenu();
         int numberGameChoice = Integer.parseInt(scanner.next());
-        startGameByChoiceNumber(numberGameChoice, engine);
+        startGameByChoiceNumber(numberGameChoice);
 
         scanner.close();
     }
@@ -42,51 +42,52 @@ public class App {
         System.out.print("Your choice: ");
     }
 
-    public static void startGameByChoiceNumber(int numberGame, Engine engineForGame) {
+    public static void startGameByChoiceNumber(int numberGame) {
+        Engine engine = new Engine();
 
         switch (numberGame) {
             case 1:
-                engineForGame.greetUser();
+                engine.greetUser();
                 break;
             case NUMBER_EVEN:
                 GameEven gameEven = new GameEven();
-                gameEven.generateDataForGameEven();
+//                gameEven.generateDataForGameEven();
 
-                engineForGame.greetUser();
-                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-                engineForGame.startGame(gameEven.getDataForGameEven());
+                engine.greetUser();
+//                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+                engine.startGame(gameEven);
                 break;
             case NUMBER_CALC:
                 GameCalc gameCalc = new GameCalc();
-                gameCalc.generateDataForGameCalc();
+//                gameCalc.generateDataForGameCalc();
 
-                engineForGame.greetUser();
-                System.out.println("What is the result of the expression?");
-                engineForGame.startGame(gameCalc.getDataForGameCalc());
+                engine.greetUser();
+//                System.out.println("What is the result of the expression?");
+                engine.startGame(gameCalc);
                 break;
             case  NUMBER_GCD:
                 GameGCD gameGCD = new GameGCD();
-                gameGCD.generateDataForGameGDK();
+//                gameGCD.generateDataForGameGDK();
 
-                engineForGame.greetUser();
-                System.out.println("Find the greatest common divisor of given numbers.");
-                engineForGame.startGame(gameGCD.getDataForGameGDK());
+                engine.greetUser();
+//                System.out.println("Find the greatest common divisor of given numbers.");
+                engine.startGame(gameGCD);
                 break;
             case  NUMBER_PROGRESSION:
                 GameProgression gameProgression = new GameProgression();
-                gameProgression.generateDataForGameProgression();
+//                gameProgression.generateDataForGameProgression();
 
-                engineForGame.greetUser();
-                System.out.println("What number is missing in the progression?");
-                engineForGame.startGame(gameProgression.getDataForGameProgression());
+                engine.greetUser();
+//                System.out.println("What number is missing in the progression?");
+                engine.startGame(gameProgression);
                 break;
             case  NUMBER_PRIME:
                 GamePrime gamePrime = new GamePrime();
-                gamePrime.generateDataForGamePrime();
+//                gamePrime.generateDataForGamePrime();
 
-                engineForGame.greetUser();
-                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-                engineForGame.startGame(gamePrime.getDataForGamePrime());
+                engine.greetUser();
+//                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+                engine.startGame(gamePrime);
                 break;
             case 0:
                 break;

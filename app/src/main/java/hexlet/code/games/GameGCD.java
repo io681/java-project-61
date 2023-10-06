@@ -5,17 +5,14 @@ import hexlet.code.Utils;
 import static hexlet.code.Engine.MAX_COUNT_ROUND;
 import static hexlet.code.Engine.MIN_NUMBER_RANDOM;
 import static hexlet.code.Engine.MAX_NUMBER_RANDOM;
-import static hexlet.code.Engine.STRUCTURE_ROUND;
 import static hexlet.code.Engine.POSITION_QUESTION_ONE;
 import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 
-public class GameGCD {
-    private final String[][] dataForGameGDK;
-
+public class GameGCD extends Games {
     public GameGCD() {
-        this.dataForGameGDK = new String[MAX_COUNT_ROUND][STRUCTURE_ROUND.length];
+        super();
     }
-    public final void generateDataForGameGDK() {
+    public final void generateDataForGame() {
         Utils generatorNumbersUtil = new Utils();
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
@@ -25,8 +22,8 @@ public class GameGCD {
             String question = numberOne + " " + numberTwo;
             String  correctResult = Integer.toString(resultOperationGDK(numberOne, numberTwo));
 
-            setDataForGameGDKByIndex(i, POSITION_QUESTION_ONE, question);
-            setDataForGameGDKByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
+            setDataForGameByIndex(i, POSITION_QUESTION_ONE, question);
+            setDataForGameByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
         }
     }
 
@@ -42,12 +39,8 @@ public class GameGCD {
         return numberGDK;
     }
 
-    public final String[][] getDataForGameGDK() {
-        return dataForGameGDK;
-    }
-
-    public final void setDataForGameGDKByIndex(int indexOne, int indexTwo, String value) {
-        this.dataForGameGDK[indexOne][indexTwo] = value;
+    public final String getRuleGame() {
+        return "Find the greatest common divisor of given numbers.";
     }
 }
 

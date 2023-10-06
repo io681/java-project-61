@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.games.Games;
+
 import java.util.Scanner;
 
 public class Engine {
@@ -20,14 +22,17 @@ public class Engine {
         this.scannerBrainGame = new Scanner(System.in);
     }
 
-    public final void startGame(String[][] dataForCurrentStartGame) {
+    public final void startGame(Games currentGame) {
         var roundCorrect = 0;
 
+        System.out.println(currentGame.getRuleGame());
+        currentGame.generateDataForGame();
+
         while (roundCorrect < MAX_COUNT_ROUND) {
-            System.out.println("Question: " + dataForCurrentStartGame[roundCorrect][POSITION_QUESTION_ONE]);
+            System.out.println("Question: " + currentGame.getDataForGame()[roundCorrect][POSITION_QUESTION_ONE]);
             readAnswer();
             boolean resultCheck = checkAnswer(getAnswer(),
-                    dataForCurrentStartGame[roundCorrect][POSITION_CORRECT_RESULT_ONE]);
+                    currentGame.getDataForGame()[roundCorrect][POSITION_CORRECT_RESULT_ONE]);
             generateTextResultRound(resultCheck);
 
             if (resultCheck) {

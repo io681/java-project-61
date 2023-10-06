@@ -5,20 +5,18 @@ import hexlet.code.Utils;
 import static hexlet.code.Engine.MAX_COUNT_ROUND;
 import static hexlet.code.Engine.MIN_NUMBER_RANDOM;
 import static hexlet.code.Engine.MAX_NUMBER_RANDOM;
-import static hexlet.code.Engine.STRUCTURE_ROUND;
 import static hexlet.code.Engine.POSITION_QUESTION_ONE;
 import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 
 
-public class GameProgression {
-    private final String[][] dataForGameProgression;
+public class GameProgression extends Games {
     public static final int RANGE_START_LENGTH_PROGRESSION = 5;
     public static final int RANGE_END_LENGTH_PROGRESSION = 10;
     public GameProgression() {
-        this.dataForGameProgression = new String[MAX_COUNT_ROUND][STRUCTURE_ROUND.length];
+        super();
     }
 
-    public final void generateDataForGameProgression() {
+    public final void generateDataForGame() {
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
             int[] generatedProgression = generateProgressionRandom();
@@ -27,8 +25,8 @@ public class GameProgression {
             String question = makeProgressionToStringWithHiddenElement(resultPositionHidden, generatedProgression);
             String correctResult = Integer.toString(generatedProgression[resultPositionHidden]);
 
-            setDataForGameProgressionByIndex(i, POSITION_QUESTION_ONE, question);
-            setDataForGameProgressionByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
+            setDataForGameByIndex(i, POSITION_QUESTION_ONE, question);
+            setDataForGameByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
         }
     }
 
@@ -71,11 +69,7 @@ public class GameProgression {
         return utils.createNumberInRange(0, progressionArray.length - 1);
     }
 
-    public final String[][] getDataForGameProgression() {
-        return dataForGameProgression;
-    }
-
-    public final void setDataForGameProgressionByIndex(int indexOne, int indexTwo, String value) {
-        this.dataForGameProgression[indexOne][indexTwo] = value;
+    public final String getRuleGame() {
+        return "What number is missing in the progression?";
     }
 }
