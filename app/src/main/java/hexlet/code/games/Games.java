@@ -5,7 +5,7 @@ import static hexlet.code.Engine.STRUCTURE_ROUND;
 
 public abstract class Games {
     private final String[][] dataForGame;
-    public Games () {
+    public Games() {
         this.dataForGame = new String[MAX_COUNT_ROUND][STRUCTURE_ROUND.length];
     }
 
@@ -17,6 +17,6 @@ public abstract class Games {
         this.dataForGame[indexOne][indexTwo] = value;
     }
 
-    public abstract void generateDataForGame ();
+    public abstract void generateDataForGame();
     public abstract String getRuleGame();
 }

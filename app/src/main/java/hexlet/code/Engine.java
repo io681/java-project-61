@@ -20,8 +20,8 @@ public class Engine {
 
     public final void startGame(Games currentGame) {
         var roundCorrect = 0;
-        String userNameForCurrentGame = greetUser();
 
+        String userNameForCurrentGame = greetUser();
         System.out.println(currentGame.getRuleGame());
         currentGame.generateDataForGame();
 
@@ -50,13 +50,14 @@ public class Engine {
         return answerCorrect.equals(answerUser);
     }
 
-    public final void generateTextResultRound(boolean isCorrect, String answerForTextResult, String UserNameForTextResult) {
+    public final void generateTextResultRound(boolean isCorrect,
+                                              String answerForTextResult, String userNameForTextResult) {
         if (isCorrect) {
             System.out.println("Correct!");
         } else {
             System.out.println("'" + answerForTextResult + "'" + " is wrong answer ;(."
                     + generateHelperStringForYesNo(answerForTextResult));
-            System.out.println("Let's try again, " + UserNameForTextResult + "!");
+            System.out.println("Let's try again, " + userNameForTextResult + "!");
         }
     }
 
