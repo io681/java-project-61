@@ -15,13 +15,7 @@ public class GamePrime extends Games {
             int numberOne = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
 
             String question = Integer.toString(numberOne);
-            String  correctResult = "";
-
-            if (isPrime(numberOne)) {
-                correctResult += "yes";
-            } else {
-                correctResult += "no";
-            }
+            String correctResult = isPrime(numberOne) ? "yes" : "no";
 
             setDataForGameByIndex(i, POSITION_QUESTION_ONE, question);
             setDataForGameByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
