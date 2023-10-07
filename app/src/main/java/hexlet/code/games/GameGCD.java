@@ -9,9 +9,6 @@ import static hexlet.code.Engine.POSITION_QUESTION_ONE;
 import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 
 public class GameGCD extends Games {
-    public GameGCD() {
-        super();
-    }
     public final void generateDataForGame() {
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
             int numberOne = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);

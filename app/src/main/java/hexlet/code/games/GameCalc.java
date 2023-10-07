@@ -12,10 +12,6 @@ import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 public class GameCalc extends  Games {
     private final String[] operations = {"+", "-", "*"};
 
-    public GameCalc() {
-        super();
-    }
-
     public final void generateDataForGame() {
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {

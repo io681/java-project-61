@@ -12,9 +12,6 @@ import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 public class GameProgression extends Games {
     public static final int RANGE_START_LENGTH_PROGRESSION = 5;
     public static final int RANGE_END_LENGTH_PROGRESSION = 10;
-    public GameProgression() {
-        super();
-    }
 
     public final void generateDataForGame() {
 
@@ -62,9 +59,7 @@ public class GameProgression extends Games {
     }
 
     public final int generatePositionHiddenForArray(int[] progressionArray) {
-        Utils utils = new Utils();
-
-        return utils.createNumberInRange(0, progressionArray.length - 1);
+        return Utils.createNumberInRange(0, progressionArray.length - 1);
     }
 
     public final String getRuleGame() {
