@@ -15,10 +15,8 @@ public  class GameEven  extends Games {
     }
 
     public final void generateDataForGame() {
-        Utils generatorNumbersUtil = new Utils();
-
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
-            int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+            int numberOne = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
 
             String question = Integer.toString(numberOne);
             String  correctResult = "";

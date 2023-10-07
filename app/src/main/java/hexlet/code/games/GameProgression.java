@@ -31,11 +31,9 @@ public class GameProgression extends Games {
     }
 
     public final int[] generateProgressionRandom() {
-        Utils generatorNumbersUtil = new Utils();
-
-        int startNumberProgression = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
-        int stepProgression = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
-        int lengthProgression = generatorNumbersUtil.createNumberInRange(RANGE_START_LENGTH_PROGRESSION,
+        int startNumberProgression = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+        int stepProgression = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+        int lengthProgression = Utils.createNumberInRange(RANGE_START_LENGTH_PROGRESSION,
                 RANGE_END_LENGTH_PROGRESSION);
         int[] progressionNumbers = new int[lengthProgression];
 

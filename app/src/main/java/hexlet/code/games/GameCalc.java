@@ -17,11 +17,10 @@ public class GameCalc extends  Games {
     }
 
     public final void generateDataForGame() {
-        Utils generatorNumbersUtil = new Utils();
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
-            int numberOne = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
-            int numberTwo = generatorNumbersUtil.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+            int numberOne = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+            int numberTwo = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
             String operator = createRandomOperator();
 
             String question = numberOne + " " + operator + " " + numberTwo;
@@ -42,9 +41,7 @@ public class GameCalc extends  Games {
     }
 
     public final String createRandomOperator() {
-        Utils utils = new Utils();
-
-        return operations[utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM) % operations.length];
+        return operations[Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM) % operations.length];
 
     }
     public final String getRuleGame() {
