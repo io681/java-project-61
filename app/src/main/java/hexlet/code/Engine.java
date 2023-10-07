@@ -5,7 +5,7 @@ import hexlet.code.games.Games;
 import java.util.Scanner;
 
 public class Engine {
-    private static final Scanner scannerBrainGame = new Scanner(System.in);
+    private static final Scanner SCANNER_ENGINE = new Scanner(System.in);
 
     public static final int MIN_NUMBER_RANDOM = 1;
     public static final int MAX_NUMBER_RANDOM = 101;
@@ -31,13 +31,11 @@ public class Engine {
             if (resultCheck) {
                 roundCorrect += 1;
             } else {
-                break;
+                return;
             }
         }
 
-        if (roundCorrect == MAX_COUNT_ROUND) {
-            System.out.println("Congratulations, " + userNameForCurrentGame + "!");
-        }
+        System.out.println("Congratulations, " + userNameForCurrentGame + "!");
 
         getScannerBrainGame().close();
     }
@@ -75,6 +73,6 @@ public class Engine {
     }
 
     public static Scanner getScannerBrainGame() {
-        return scannerBrainGame;
+        return SCANNER_ENGINE;
     }
 }
