@@ -42,31 +42,29 @@ public class App {
     }
 
     public static void startGameByChoiceNumber(int numberGame) {
-        Engine engine = new Engine();
-
         switch (numberGame) {
             case 1:
-                engine.greetUser();
+                Engine.greetUser();
                 break;
             case NUMBER_EVEN:
                 GameEven gameEven = new GameEven();
-                engine.startGame(gameEven);
+                Engine.startGame(gameEven);
                 break;
             case NUMBER_CALC:
                 GameCalc gameCalc = new GameCalc();
-                engine.startGame(gameCalc);
+                Engine.startGame(gameCalc);
                 break;
             case  NUMBER_GCD:
                 GameGCD gameGCD = new GameGCD();
-                engine.startGame(gameGCD);
+                Engine.startGame(gameGCD);
                 break;
             case  NUMBER_PROGRESSION:
                 GameProgression gameProgression = new GameProgression();
-                engine.startGame(gameProgression);
+                Engine.startGame(gameProgression);
                 break;
             case  NUMBER_PRIME:
                 GamePrime gamePrime = new GamePrime();
-                engine.startGame(gamePrime);
+                Engine.startGame(gamePrime);
                 break;
             case 0:
                 break;
