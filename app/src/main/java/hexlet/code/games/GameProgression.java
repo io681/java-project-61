@@ -16,7 +16,13 @@ public class GameProgression extends Games {
     public final void generateDataForGame() {
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
-            int[] generatedProgression = generateProgressionRandom();
+            int startNumberProgressionForGame = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+            int stepProgressionForGame = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
+            int lengthProgressionForGame = Utils.createNumberInRange(RANGE_START_LENGTH_PROGRESSION,
+                    RANGE_END_LENGTH_PROGRESSION);
+
+            int[] generatedProgression = generateProgressionByParameters(startNumberProgressionForGame,
+                    stepProgressionForGame, lengthProgressionForGame);
             int resultPositionHidden = generatePositionHiddenForArray(generatedProgression);
 
             String question = makeProgressionToStringWithHiddenElement(resultPositionHidden, generatedProgression);
@@ -27,11 +33,8 @@ public class GameProgression extends Games {
         }
     }
 
-    public final int[] generateProgressionRandom() {
-        int startNumberProgression = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
-        int stepProgression = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
-        int lengthProgression = Utils.createNumberInRange(RANGE_START_LENGTH_PROGRESSION,
-                RANGE_END_LENGTH_PROGRESSION);
+    public final int[] generateProgressionByParameters(int startNumberProgression,
+                                                       int stepProgression, int lengthProgression) {
         int[] progressionNumbers = new int[lengthProgression];
 
         int nextNumberProgression = startNumberProgression;
