@@ -44,7 +44,7 @@ public class App {
     public static void startGameByChoiceNumber(int numberGame) {
         switch (numberGame) {
             case 1:
-                Engine.greetUser();
+                Cli.greeting();
                 break;
             case NUMBER_EVEN:
                 GameEven gameEven = new GameEven();
