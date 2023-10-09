@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Utils;
 
-
 import static hexlet.code.Engine.MAX_COUNT_ROUND;
 import static hexlet.code.Engine.MIN_NUMBER_RANDOM;
 import static hexlet.code.Engine.MAX_NUMBER_RANDOM;
@@ -24,35 +23,17 @@ public class GamePrime extends Games {
         return getDataForGame();
     }
 
-    public final  String[] generateArrayOfPrime() {
-        String numbersPrime = "";
-        int countOperation = 0;
-
-        for (int i = 1; i <= MAX_NUMBER_RANDOM; i++) {
-            for (int j = 2; j <= i; j++) {
-                if (i % j == 0) {
-                    countOperation += 1;
-                }
-            }
-            if (countOperation == 1) {
-                numbersPrime += i + " ";
-            }
-            countOperation = 0;
-        }
-
-        return numbersPrime.split(" ");
-    }
-
     public final boolean isPrime(int numberCheckPrime) {
-        String[] arrayCheckPrime = generateArrayOfPrime();
-
-        for (String element: arrayCheckPrime) {
-            if (element.equals(Integer.toString(numberCheckPrime))) {
-                return true;
-            }
+        if (numberCheckPrime < 2) {
+            return false;
         }
 
-        return false;
+        for (int i = 2; i <= numberCheckPrime / 2; i++) {
+            if (numberCheckPrime % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
     public final String getRuleGame() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
