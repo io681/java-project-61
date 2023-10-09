@@ -10,7 +10,7 @@ import static hexlet.code.Engine.POSITION_QUESTION_ONE;
 import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 
 public class GamePrime extends Games {
-    public final void generateDataForGame() {
+    public final String[][] generateDataForGame() {
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
             int numberOne = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
 
@@ -20,6 +20,8 @@ public class GamePrime extends Games {
             setDataForGameByIndex(i, POSITION_QUESTION_ONE, question);
             setDataForGameByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
         }
+
+        return getDataForGame();
     }
 
     public final  String[] generateArrayOfPrime() {

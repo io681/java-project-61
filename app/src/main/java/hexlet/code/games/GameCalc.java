@@ -12,7 +12,7 @@ import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 public class GameCalc extends  Games {
     private final String[] operations = {"+", "-", "*"};
 
-    public final void generateDataForGame() {
+    public final String[][]  generateDataForGame() {
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
             int numberOne = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
@@ -25,6 +25,8 @@ public class GameCalc extends  Games {
             setDataForGameByIndex(i, POSITION_QUESTION_ONE, question);
             setDataForGameByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
         }
+
+        return getDataForGame();
     }
 
     public final int calculateOperation(String operation, int numberOneForResult, int numberTwoForResult) {

@@ -10,22 +10,18 @@ import static hexlet.code.Engine.POSITION_CORRECT_RESULT_ONE;
 
 
 public  class GameEven  extends Games {
-    public final void generateDataForGame() {
+    public final String[][] generateDataForGame() {
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
             int numberOne = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
 
             String question = Integer.toString(numberOne);
             String correctResult = isEven(numberOne) ? "yes" : "no";
 
-//            if (isEven(numberOne)) {
-//                correctResult = "yes";
-//            } else {
-//                correctResult = "no";
-//            }
-
             setDataForGameByIndex(i, POSITION_QUESTION_ONE, question);
             setDataForGameByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
         }
+
+        return getDataForGame();
     }
 
     public final boolean isEven(int checkNumberForIsEven) {

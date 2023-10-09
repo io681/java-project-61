@@ -48,23 +48,23 @@ public class App {
                 break;
             case NUMBER_EVEN:
                 GameEven gameEven = new GameEven();
-                Engine.startGame(gameEven);
+                gameEven.startGame();
                 break;
             case NUMBER_CALC:
                 GameCalc gameCalc = new GameCalc();
-                Engine.startGame(gameCalc);
+                gameCalc.startGame();
                 break;
             case  NUMBER_GCD:
                 GameGCD gameGCD = new GameGCD();
-                Engine.startGame(gameGCD);
+                gameGCD.startGame();
                 break;
             case  NUMBER_PROGRESSION:
                 GameProgression gameProgression = new GameProgression();
-                Engine.startGame(gameProgression);
+                gameProgression.startGame();
                 break;
             case  NUMBER_PRIME:
                 GamePrime gamePrime = new GamePrime();
-                Engine.startGame(gamePrime);
+                gamePrime.startGame();
                 break;
             case 0:
                 break;

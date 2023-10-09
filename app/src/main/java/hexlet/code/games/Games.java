@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import static hexlet.code.Engine.MAX_COUNT_ROUND;
 import static hexlet.code.Engine.STRUCTURE_ROUND;
 
@@ -17,6 +19,10 @@ public abstract class Games {
         this.dataForGame[indexOne][indexTwo] = value;
     }
 
-    public abstract void generateDataForGame();
+    public abstract String[][]  generateDataForGame();
     public abstract String getRuleGame();
+
+    public final void startGame() {
+        Engine.runGame(generateDataForGame(), getRuleGame());
+    }
 }

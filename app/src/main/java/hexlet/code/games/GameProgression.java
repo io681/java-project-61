@@ -13,7 +13,7 @@ public class GameProgression extends Games {
     public static final int RANGE_START_LENGTH_PROGRESSION = 5;
     public static final int RANGE_END_LENGTH_PROGRESSION = 10;
 
-    public final void generateDataForGame() {
+    public final String[][] generateDataForGame() {
 
         for (var i = 0; i < MAX_COUNT_ROUND; i++) {
             int startNumberProgressionForGame = Utils.createNumberInRange(MIN_NUMBER_RANDOM, MAX_NUMBER_RANDOM);
@@ -31,6 +31,8 @@ public class GameProgression extends Games {
             setDataForGameByIndex(i, POSITION_QUESTION_ONE, question);
             setDataForGameByIndex(i, POSITION_CORRECT_RESULT_ONE, correctResult);
         }
+
+        return getDataForGame();
     }
 
     public final int[] generateProgressionByParameters(int startNumberProgression,
